@@ -174,16 +174,14 @@
      function success(results) {
 
          $("#ulcollections").html('');
-         $("#ulcollections").append("<div class='sub_nav_cat'><li class='in_sub_nv' onclick='gotoproductcat(0)'>NEW ARRIVAL</li></div>");
+         $("#ulcollections").append("<div class='sub_nav_cat'><li class='in_sub_nv' onclick='gotoproductcat(0,0)'>NEW ARRIVAL</li></div>");
          for (var i = 0; i < results.length; i++) {
              if (results[i].CategoryId == '0') {
-                 $("#ulcollections").append("<div class='sub_nav_cat dv" + results[i].SubCategoryId + "'><li class='in_sub_nv' onclick='gotoproductcat(" + results[i].SubCategoryId + ")'>" + results[i].SubCategory + "</li></div>");
+                 $("#ulcollections").append("<div class='sub_nav_cat dv" + results[i].SubCategoryId + "'><li class='in_sub_nv' onclick='gotoproductcat(" + results[i].CategoryId + ","+results[i].SubCategoryId+")'>" + results[i].SubCategory + "</li></div>");
 
              }
              else {
-
-
-                 $(".dv" + results[i].CategoryId).append("<li onclick='gotoproductcat(" + results[i].SubCategoryId + ")'>" + results[i].SubCategory + "</li>");
+                 $(".dv" + results[i].CategoryId).append("<li onclick='gotoproductcat(" + results[i].CategoryId +","+results[i].SubCategoryId+")'>" + results[i].SubCategory + "</li>");
              }
          }
 
@@ -192,8 +190,9 @@
      }
      function fail() {
      }
-     function gotoproductcat(vals) {
-         window.location.href = 'ProductsList.aspx?Category='+vals;
+     function gotoproductcat(vals,subcat) {
+          
+         window.location.href = 'ProductsList.aspx?Category=' + vals+'&subcat='+subcat;
      }
                 </script>
 

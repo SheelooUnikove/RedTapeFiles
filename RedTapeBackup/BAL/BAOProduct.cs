@@ -6,10 +6,13 @@ using System.Data;
 namespace BAL
 {
 
-    public class BAOProductLists
+    public class BAOProductMenu
     {
-        public List<BAOCategory> category { get; set; }
-        public List<BAOProduct> product { get; set; }
+        public List<BAOCategory> Categorylst { get; set; }
+        public List<BAOColourCodes> ColourCodeslst { get; set; }
+        public List<BAOAttributes> Attributeslst { get; set; }
+        public List<BAOMinMaxSliderVals> MinMaxVals { get; set; }
+        public List<BAOOffers> Offerslst { get; set; }
     }
 
     public class BAOProduct
@@ -49,5 +52,30 @@ namespace BAL
         public String SubCategory { get; set; }
 
     }
-    
+
+    public class BAOColourCodes
+    {        
+        public String ColourCode { get; set; }       
+
+    }
+
+    public class BAOAttributes
+    {
+        public int AttributeId { get; set; }      
+        public String Size { get; set; }
+
+    }
+    public class BAOMinMaxSliderVals
+    {
+        public int MinVal{ get; set; }
+        public int MaxVal { get; set; } 
+
+    }
+     public class BAOOffers
+    {
+        public int offerId{ get; set; }
+        public int offerTitle { get; set; }
+        public int percentage { get; set; }
+
+    }
 }

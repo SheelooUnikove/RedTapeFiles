@@ -24,13 +24,21 @@ namespace DAL
 
         }
 
+        /// GetCategories
+        /// </summary>
+        /// <parameters> 0 for All</parameters>
+        /// <returns></returns>
+        public  List<BAOProductMenu> GetProductMenu(int CategoryId)
+        {
+            return Mapper.ToProductMenuListing(MsAppDataUtility.ExecuteDataset("sp_GetProductsleftMenu", CategoryId));
+
+        }
+
         /// <summary>
         /// GetAllProductsByCategoryId
         /// </summary>
         /// <parameters> categoryId,productId(optional=0)</parameters>
         /// <returns>1-Product Details Table,2- Product Images Table</returns>
-
-
         public List<BAOProduct> GetAllProductsByCategoryId(int CategoryId, string colorCodes, string sizes, int LowPrice, int HighPrice, string OfferTypeId, int StartIndex, int EndIndex,string sortby)
         {
             return Mapper.ToProductListing(MsAppDataUtility.ExecuteDataTable("sp_GetProductsList", CategoryId, colorCodes, sizes, LowPrice, HighPrice, OfferTypeId, StartIndex, EndIndex,sortby));

@@ -5,11 +5,8 @@
 	<div class="left_container trans">
 		
 		<div class="left_nav">
-		<ul>
-			<li class="extr_pdng">FOOTWEAR</li>
-			<li>Casual</li>
-			<li>Formal</li>
-			<li>Sandals</li>
+		<ul id="leftcats">
+			 
 		</ul>
 		</div>
 	
@@ -85,59 +82,63 @@
 		
 	<div class="product">
 		<ul id="prdsDiv">
-
-
-
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-			<li><div class="product_list_thumb"><img src="images/website/product_listing/img1.png" /></div><div class="product_list_info"><div class="product_list_name">FORMAL NOIR</div><div class="product_list_price">2499</div></div></li>
-		</ul>
+            </ul>
 	</div>
 	</div>
 </div>
 
     <script>
-        $(function () {
-            var strurl = document.URL;
-            if (strurl.indexOf("=") > 0) {
-                var res = strurl.split("=");
-                RedTapeWeb.Services.ProductCats.GetProductsList(res[1], success, fail);
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() > $(document).height()-10) {
+                var strurl = document.URL;
+                if (strurl.indexOf("=") > 0) {
+                    var res = strurl.split("=");
+                    var catid = strurl.split("subcat=");
+                    RedTapeWeb.Services.ProductCats.GetProductsList(catid[1], '#115522', '7', '0', '10', '1', '5', '15', 'www', Showproducts, onfail);
+                }
             }
         });
 
+        $(window).load(function () {
+            var strurl = document.URL;
+            if (strurl.indexOf("=") > 0) {
+                var res = strurl.split("=");
+                var catid = strurl.split("subcat=");
+                var finalCatarr = catid[0].split("=");
+               
+                RedTapeWeb.Services.ProductCats.GetProductsList(catid[1], '#115522', '7', '0', '10', '1', '1', '5', 'www', Showproducts, onfail);
+                RedTapeWeb.Services.ProductCats.GetCategoriesList(finalCatarr[1].split("&")[0], ShowCatMenu, onfail);
+                //<li class="extr_pdng">FOOTWEAR</li>
+            }
 
-        function success(results) {
+        });
 
-            $("#ulcollections").html('');
-            $("#ulcollections").append("<div class='sub_nav_cat'><li class='in_sub_nv' onclick='gotoproductcat(0)'>NEW ARRIVAL</li></div>");
+       
+
+        function Showproducts(results) {
+
+         
+            
             for (var i = 0; i < results.length; i++) {
-                if (results[i].CategoryId == '0') {
-                    $("#ulcollections").append("<div class='sub_nav_cat dv" + results[i].SubCategoryId + "'><li class='in_sub_nv' onclick='gotoproductcat(" + results[i].SubCategoryId + ")'>" + results[i].SubCategory + "</li></div>");
+                
+                $("#prdsDiv").append("<li><div class='product_list_thumb'><img src='images/website/product_listing/img1.png' /></div><div class='product_list_info'><div class='product_list_name'>" + results[i].ProductTitle + "</div><div class='product_list_price'>" + results[i].SalePrice + "</div></div></li>");
 
-                }
-                else {
-
-
-                    $(".dv" + results[i].CategoryId).append("<li onclick='gotoproductcat(" + results[i].SubCategoryId + ")'>" + results[i].SubCategory + "</li>");
-                }
+                
+                
             }
 
 
 
         }
-        function fail() {
+
+        function ShowCatMenu(results) {
+           
+            $("#leftcats").append("<li>" + results[0].Category + "</li>");
+            for (var i = 0; i < results.length; i++) {
+                $("#leftcats").append("<li onclick='gotoproductcat(" + results[i].CategoryId + "," + results[i].SubCategoryId + ")' >" + results[i].SubCategory + " </li>");
+            }
+        }
+        function onfail() {
         }
         function gotoproductcat(vals) {
             window.location.href = 'ProductsList.aspx?Category=' + vals;
