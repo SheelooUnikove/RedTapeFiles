@@ -10,78 +10,69 @@
 namespace RedTapeWeb {
     
     
-    public partial class MasterRedTape {
+    public partial class change_password {
         
         /// <summary>
-        /// form1 control.
+        /// txt_OldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_OldPassword;
         
         /// <summary>
-        /// lnk_Login control.
+        /// rvl_OldPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnk_Login;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_OldPassword;
         
         /// <summary>
-        /// lnk_LogOut control.
+        /// txt_NewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk_LogOut;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_NewPassword;
         
         /// <summary>
-        /// lbl_WishListCount control.
+        /// rvl_NewPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_WishListCount;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_NewPassword;
         
         /// <summary>
-        /// lbl_CartCount control.
+        /// txt_ConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_CartCount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_ConfirmPassword;
         
         /// <summary>
-        /// viewpath control.
+        /// cmv_ConfirmPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl viewpath;
+        protected global::System.Web.UI.WebControls.CompareValidator cmv_ConfirmPassword;
         
         /// <summary>
-        /// ScriptManager1 control.
+        /// btn_SaveChanges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.LinkButton btn_SaveChanges;
     }
 }

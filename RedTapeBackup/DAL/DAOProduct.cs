@@ -28,9 +28,9 @@ namespace DAL
         /// </summary>
         /// <parameters> 0 for All</parameters>
         /// <returns></returns>
-        public  List<BAOProductMenu> GetProductMenu(int CategoryId)
+        public List<BAOProductMenu> GetProductMenu(int CategoryId, int SubCategoryId)
         {
-            return Mapper.ToProductMenuListing(MsAppDataUtility.ExecuteDataset("sp_GetProductsleftMenu", CategoryId));
+            return Mapper.ToProductMenuListing(MsAppDataUtility.ExecuteDataset("sp_GetProductsleftMenu", CategoryId, SubCategoryId));
 
         }
 

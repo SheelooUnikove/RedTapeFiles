@@ -14,6 +14,7 @@ namespace BAL
         public string userfbId { get; set; }// Facebook userid
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public string  gender { get; set; }
         public string emailAddress { get; set; }
         public string password { get; set; }
         public string newpassword { get; set; }
@@ -38,7 +39,7 @@ namespace BAL
         public int bilingAddressId { get; set; }
         public string street1 { get; set; }
         public string street2 { get; set; }
-        public int countryId { get; set; }
+        public string  countryId { get; set; }
         public int stateId { get; set; }
         public int cityId { get; set; }
         public string pincode { get; set; }
@@ -62,6 +63,10 @@ namespace BAL
         public int newsletterId { get; set; }
         public DateTime subscribeDate { get; set; }
         public DateTime subscribeEndDate { get; set; }
+
+
+        public static int WishListCount { get; set; }
+        public static int CartCount { get; set; }
 
     }
 }

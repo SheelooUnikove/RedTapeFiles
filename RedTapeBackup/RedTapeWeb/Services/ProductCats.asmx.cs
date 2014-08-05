@@ -49,12 +49,12 @@ namespace RedTapeWeb.Services
             }
         } 
         [WebMethod(Description = "Get Categories list")]
-        public List<BAOProductMenu> GetProductsMenu(int CategoryId)
+        public List<BAOProductMenu> GetProductsMenu(int CategoryId, int SubCategoryId)
         {
             try
             {
                 DAOProduct objproduct = new DAOProduct();
-                return objproduct.GetProductMenu(CategoryId);              
+                return objproduct.GetProductMenu(CategoryId, SubCategoryId);              
             }
             catch 
             {

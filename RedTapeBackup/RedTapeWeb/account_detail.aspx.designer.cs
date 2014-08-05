@@ -10,213 +10,213 @@
 namespace RedTapeWeb {
     
     
-    public partial class login_signup {
+    public partial class account_detail {
         
         /// <summary>
-        /// pnl_UserLogin control.
+        /// lnk_EditProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl_UserLogin;
+        protected global::System.Web.UI.WebControls.LinkButton lnk_EditProfile;
         
         /// <summary>
-        /// txt_LoginUserEmailAddress control.
+        /// txt_UserFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_LoginUserEmailAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_UserFirstName;
         
         /// <summary>
-        /// rvl_LoginUserEmailAddress control.
+        /// rvl_UserFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_LoginUserEmailAddress;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_UserFirstName;
         
         /// <summary>
-        /// rev_LoginUserEmailAddress control.
+        /// txt_UserLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev_LoginUserEmailAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_UserLastName;
         
         /// <summary>
-        /// txt_LoginPassword control.
+        /// rvl_UserLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_LoginPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_UserLastName;
         
         /// <summary>
-        /// rvl_LoginPassword control.
+        /// txt_userEmailAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_LoginPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_userEmailAddress;
         
         /// <summary>
-        /// chk_KeepMeSign control.
+        /// drp_DOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chk_KeepMeSign;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText drp_DOB;
         
         /// <summary>
-        /// btn_login control.
+        /// txt_UserMobileNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btn_login;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_UserMobileNo;
         
         /// <summary>
-        /// loginmsg control.
+        /// drp_Gender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginmsg;
+        protected global::System.Web.UI.WebControls.DropDownList drp_Gender;
         
         /// <summary>
-        /// pnl_UserSignUp control.
+        /// lbl_BlngAddId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnl_UserSignUp;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lbl_BlngAddId;
         
         /// <summary>
-        /// txt_FirstName control.
+        /// txt_BlngStreet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_FirstName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_BlngStreet1;
         
         /// <summary>
-        /// rev__SignInUserLastName control.
+        /// txt_BlngStreet2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rev__SignInUserLastName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_BlngStreet2;
         
         /// <summary>
-        /// txt_LastName control.
+        /// drp_BlngCities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_LastName;
+        protected global::System.Web.UI.WebControls.DropDownList drp_BlngCities;
         
         /// <summary>
-        /// rev__SignInUserFastName control.
+        /// drp_BlngStates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rev__SignInUserFastName;
+        protected global::System.Web.UI.WebControls.DropDownList drp_BlngStates;
         
         /// <summary>
-        /// txt_EmailAddress control.
+        /// txt_BlngPinCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_EmailAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_BlngPinCode;
         
         /// <summary>
-        /// rev_SignInUserEmailAddress control.
+        /// drp_BlngCountries control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rev_SignInUserEmailAddress;
+        protected global::System.Web.UI.WebControls.DropDownList drp_BlngCountries;
         
         /// <summary>
-        /// rev__SignInUserEmailAddress control.
+        /// lbl_ShngAddId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator rev__SignInUserEmailAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText lbl_ShngAddId;
         
         /// <summary>
-        /// txt_Password control.
+        /// txt_ShngStreet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txt_Password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_ShngStreet1;
         
         /// <summary>
-        /// rev_SignInUserpassword control.
+        /// txt_ShngStreet2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rev_SignInUserpassword;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_ShngStreet2;
         
         /// <summary>
-        /// chk_IsSubscribe control.
+        /// drp_ShngCities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chk_IsSubscribe;
+        protected global::System.Web.UI.WebControls.DropDownList drp_ShngCities;
         
         /// <summary>
-        /// chk_AgreeTerms control.
+        /// drp_ShngStates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chk_AgreeTerms;
+        protected global::System.Web.UI.WebControls.DropDownList drp_ShngStates;
         
         /// <summary>
-        /// signInmsg control.
+        /// txt_ShngPinCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl signInmsg;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_ShngPinCode;
         
         /// <summary>
-        /// btn_signup control.
+        /// drp_ShngCountries control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btn_signup;
+        protected global::System.Web.UI.WebControls.DropDownList drp_ShngCountries;
     }
 }

@@ -13,33 +13,15 @@
 		<h4>FILTER BY</h4>
 	<div class="color">	
 		<p class="filter_heading">COLOUR</p>
-		<ul>
-			<li style="background:#fff"></li>
-			<li style="background:#c0c0c0"></li>
-			<li style="background:#d2b58c"></li>
-			<li style="background:#000080"></li>
-			<li style="background:#808000"></li>
-			<li style="background:#787878"></li>
-			<li style="background:#5c246e"></li>
-			<li style="background:#f5f5dc"></li>
-			<li style="background:#5c3317"></li>
-			<li style="background:#32a1de"></li>
+		<ul id="dvcolour">
+
 		</ul>	
 	</div>
 	
 	<div class="size">	
 		<p class="filter_heading">SIZE</p>
-		<ul>
-			<li >5</li>
-			<li class="selected">6</li>
-			<li class="selected">7</li>
-			<li >8</li>
-			<li >9</li>
-			<li >10</li>
-			<li >11</li>
-			<li >UK7</li>
-			<li >UK8</li>
-			<li >UK9</li>
+		<ul id="dvsize">
+			 
 		</ul>	
 	</div>
 	
@@ -51,16 +33,17 @@
 			<div class="price_filter_arrow_2"></div>
 			<div class="price_filter_bar2"></div>
 		</div>
-		<p style="float:left; color:#404040; padding:5px;">499</p><p style="float:right; color:#404040; padding:5px;">5999</p>
+		<p style="float:left; color:#404040; padding:5px;" id="ParaMinval"></p>
+        <p style="float:right; color:#404040; padding:5px;" id="ParaMaxval"></p>
 	</div>
 		
 
 			
 	<div class="color">
 		<p class="offer_discount">OFFERS/DISCOUNTS</p>
+		<div id="dvoffers"></div>
+		<%--<div class="filter_text"><div>Summer Sale (20%off) </div><input class="filter_input1" type="button" /></div>--%>
 		
-		<div class="filter_text"><div>Summer Sale (20%off) </div><input class="filter_input1" type="button" /></div>
-		<div class="filter_text"><div>Clearance Sale (10%off) </div><input class="filter_input1" type="button" /></div>
 		<p class="filter_reset">RESET FILTER</p>
 	</div>
 			
@@ -69,7 +52,7 @@
 	<div class="right_container trans">
 		
 
-		<h2>casual footwear</h2>
+		<h2 class="clsgh2">casual footwear</h2>
 		<div class="text"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. </p></div>
 
 		 <select class="sort">
@@ -107,7 +90,7 @@
                 var finalCatarr = catid[0].split("=");
                
                 RedTapeWeb.Services.ProductCats.GetProductsList(catid[1], '#115522', '7', '0', '10', '1', '1', '5', 'www', Showproducts, onfail);
-                RedTapeWeb.Services.ProductCats.GetCategoriesList(finalCatarr[1].split("&")[0], ShowCatMenu, onfail);
+                RedTapeWeb.Services.ProductCats.GetProductsMenu(finalCatarr[1].split("&")[0],catid[1], ShowCatMenu, onfail);
                 //<li class="extr_pdng">FOOTWEAR</li>
             }
 
@@ -132,10 +115,31 @@
         }
 
         function ShowCatMenu(results) {
+            console.log(results);
+            $(".clsgh2").append(results[0].Categorylst[0].Category);
+            $(".clsCatDetails").append(results[0].Categorylst[0].Description);
+
+            $("#leftcats").append("<li>" + results[0].Categorylst[0].Category + "</li>");
+            for (var i = 0; i < results[0].Categorylst.length; i++) {
+                $("#leftcats").append("<li onclick='gotoproductcat(" + results[0].Categorylst[i].CategoryId + "," + results[0].Categorylst[i].SubCategoryId + ")' >" + results[0].Categorylst[i].SubCategory + " </li>");
+            }
+
            
-            $("#leftcats").append("<li>" + results[0].Category + "</li>");
-            for (var i = 0; i < results.length; i++) {
-                $("#leftcats").append("<li onclick='gotoproductcat(" + results[i].CategoryId + "," + results[i].SubCategoryId + ")' >" + results[i].SubCategory + " </li>");
+            for (var i = 0; i < results[0].ColourCodeslst.length; i++) {
+                $("#dvcolour").append("<li style='background:" + results[0].ColourCodeslst[i].ColourCode + "'></li>");
+            }
+          
+            for (var i = 0; i < results[0].Attributeslst.length; i++) {
+                $("#dvsize").append("<li>" + results[0].Attributeslst[i].AttributeValue + "</li>");
+            }
+          //  alert(results[0].MinMaxlst[0].MinVal);
+
+            $("#ParaMinval").append(results[0].MinMaxVals[0].MinVal);
+            $("#ParaMaxval").append(results[0].MinMaxVals[0].MaxVal);
+
+          //  alert(results[0].Offerslst[0].offerTitle);
+            for (var i = 0; i < results[0].Offerslst.length; i++) {
+                $("#dvoffers").append("<div class='filter_text'><div>" + results[0].Offerslst[0].offerTitle + "</div><input class='filter_input1' type='button' /></div>");
             }
         }
         function onfail() {

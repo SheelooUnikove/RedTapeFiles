@@ -20,6 +20,7 @@ namespace BAL
                 CatItem.SubCategoryId = Convert.ToInt32(dr["categoryId"]);
                 CatItem.Category = dr["category"].ToString();
                 CatItem.SubCategory = dr["subCategory"].ToString();
+                CatItem.Description = dr["description"].ToString();
                 Categories.Add(CatItem);
             }
             return Categories;
@@ -38,6 +39,8 @@ namespace BAL
                 CatItem.SubCategoryId = Convert.ToInt32(dr["categoryId"]);
                 CatItem.Category = dr["category"].ToString();
                 CatItem.SubCategory = dr["subCategory"].ToString();
+                CatItem.Description = dr["description"].ToString();
+
                 Categorieslst.Add(CatItem);
             }
 
@@ -55,8 +58,7 @@ namespace BAL
             foreach (DataRow dr in ds.Tables[2].Rows)
             {
                 BAOAttributes AttrItem = new BAOAttributes();
-                AttrItem.AttributeId = Convert.ToInt32(dr["attributeId"]);
-                AttrItem.Size =  dr["size"].ToString();
+                AttrItem.AttributeValue = dr["attributeValue"].ToString();            
 
                 Attributeslst.Add(AttrItem);
 
@@ -68,7 +70,7 @@ namespace BAL
             {
                 BAOMinMaxSliderVals BAOSliderItem = new BAOMinMaxSliderVals();
                 BAOSliderItem.MinVal = Convert.ToInt32(dr["minvalue"]);
-                BAOSliderItem.MinVal = Convert.ToInt32(dr["maxvalue"]);
+                BAOSliderItem.MaxVal = Convert.ToInt32(dr["maxvalue"]);
 
                 MinMaxlst.Add(BAOSliderItem);
 
@@ -80,7 +82,7 @@ namespace BAL
             {
                 BAOOffers offerItem = new BAOOffers();
                 offerItem.offerId = Convert.ToInt32(dr["offerId"]);
-                offerItem.offerTitle = Convert.ToInt32(dr["offerTitle"]);
+                offerItem.offerTitle = dr["offerTitle"].ToString();
                 offerItem.percentage = Convert.ToInt32(dr["percentage"]);
                 Offerslst.Add(offerItem);
 
@@ -94,6 +96,8 @@ namespace BAL
             PrdMenuItem.MinMaxVals = MinMaxlst;
             PrdMenuItem.Offerslst = Offerslst;
             productMenulst.Add(PrdMenuItem);
+            return productMenulst;
+
         }
         public static List<BAOProduct> ToProductListing(DataTable dt)        
         {
@@ -107,7 +111,7 @@ namespace BAL
                 productItem.ProductTitle =dr["ProductTitle"].ToString();
                 productItem.Description = dr["description"].ToString();
                 productItem.ShortDescription = dr["Shortdescription"].ToString();
-                productItem.MetarialTypeId = ClsGeneral.getInt32(dr["metarialTypeId"].ToString());
+               // productItem.MetarialTypeId = ClsGeneral.getInt32(dr["metarialTypeId"].ToString());
                 productItem.MSRP =dr["mSRP"].ToString();
                 productItem.SalePrice = ClsGeneral.getInt32(dr["salePrice"].ToString()); 
                 productItem.ColourCode =  dr["colourCode"].ToString();
@@ -116,7 +120,7 @@ namespace BAL
                 productItem.GroupId = ClsGeneral.getInt32(dr["GroupId"].ToString());
                 productItem.TaxAppliedPercentage = float.Parse(dr["categoryId"].ToString());
                 productItem.Quantity = ClsGeneral.getInt32(dr["quantity"].ToString());
-                productItem.AvailableFor = ClsGeneral.getInt32(dr["availableFor"].ToString());
+                productItem.IsAvailableFor = ClsGeneral.getInt32(dr["availableFor"].ToString());
                 productItem.NewArrival =ClsGeneral.getInt32(dr["newArrival"].ToString());
                 productItem.Rating = ClsGeneral.getInt32(dr["rating"].ToString());
                 

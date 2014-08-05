@@ -14,7 +14,7 @@ namespace DAL
         /// <returns>User All Data (DataSet)</returns>
         public DataSet SaveUsers(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataset("sp_SaveUsers", objUsers.userId, objUsers.userfbId, objUsers.firstName, objUsers.lastName, objUsers.emailAddress, objUsers.password,
+            return MsAppDataUtility.ExecuteDataset("sp_SaveUsers", objUsers.userId, objUsers.userfbId, objUsers.firstName, objUsers.lastName,objUsers.gender, objUsers.emailAddress, objUsers.password,
                                                                            objUsers.dob, objUsers.mobileNo, objUsers.telePhoneNo, objUsers.fax, objUsers.userType, objUsers.IsSubscribe);
         }
         /// <summary>
@@ -26,13 +26,21 @@ namespace DAL
             return MsAppDataUtility.ExecuteDataset("sp_GetValidLoginUserDetails", objUsers.emailAddress, objUsers.password, objUsers.userfbId);
         }
         /// <summary>
+        /// GetUserDetails
+        /// </summary>
+        /// <returns>User All Data (DataSet)</returns>
+        public DataSet GetUserDetails(BAOUsers objUsers)
+        {
+            return MsAppDataUtility.ExecuteDataset("sp_GetUserDetails", objUsers.userId);
+        }
+        /// <summary>
         /// SaveBillingAddress
         /// </summary>
         /// <returns>BilingAddressId(INT)</returns>
         public int SaveBillingAddress(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteNonQuery("sp_SaveUserBillingDetails", objUsers.bilingAddressId, objUsers.userId, objUsers.street1, objUsers.street2, objUsers.countryId, objUsers.stateId,
-                                                                                   objUsers.cityId, objUsers.pincode);
+            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveUserBillingDetails", objUsers.bilingAddressId, objUsers.userId, objUsers.street1, objUsers.street2, objUsers.countryId, objUsers.stateId,
+                                                                                   objUsers.cityId, objUsers.pincode).Rows[0][0]);
         }
         /// <summary>
         /// SaveShippingAddress
@@ -40,8 +48,8 @@ namespace DAL
         /// <returns>ShippingAddressId(INT)</returns>
         public int SaveShippingAddress(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteNonQuery("sp_SaveUserShippingDetails", objUsers.shipAddressId, objUsers.userId, objUsers.street1, objUsers.street2, objUsers.countryId, objUsers.stateId,
-                                                                                   objUsers.cityId, objUsers.pincode);
+            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveUserShippingDetails", objUsers.shipAddressId, objUsers.userId, objUsers.street1, objUsers.street2, objUsers.countryId, objUsers.stateId,
+                                                                                   objUsers.cityId, objUsers.pincode).Rows[0][0]);
         }
         /// <summary>
         /// UpdateUserPassword
@@ -49,7 +57,7 @@ namespace DAL
         /// <returns>Massage(Satring)</returns>
         public string UpdateUserPassword(BAOUsers objUsers)
         {
-            return Convert.ToString(MsAppDataUtility.ExecuteNonQuery("sp_UpdateUserPassword", objUsers.emailAddress, objUsers.password, objUsers.newpassword));
+            return MsAppDataUtility.ExecuteDataTable("sp_UpdateUserPassword", objUsers.userId, objUsers.password, objUsers.newpassword).Rows[0][0].ToString();
         }
         /// <summary>
         /// CheckUseEmailAddress
@@ -95,5 +103,31 @@ namespace DAL
         {
             return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId, objUsers.userId, objUsers.viewType);
         }
+        /// <summary>
+        /// GetCountryList
+        /// </summary>
+        /// <returns>ListData</returns>
+        public DataTable GetCountryList(BAOUsers objUsers)
+        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetCountries");
+        }
+        /// <summary>
+        /// GetStates
+        /// </summary>
+        /// <returns>ListData</returns>
+        public DataTable GetStates(BAOUsers objUsers)
+        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetStates",objUsers.countryId);
+        }
+        /// <summary>
+        /// GetCities
+        /// </summary>
+        /// <returns>ListData</returns>
+        public DataTable GetCities(BAOUsers objUsers)
+        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetCities", objUsers.countryId);
+        }
+
+
     }
 }

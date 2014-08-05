@@ -22,8 +22,7 @@ namespace BAL
         public int SkuID { get; set; }
         public string ProductTitle { get; set; }
         public string Description { get; set; }
-        public string ShortDescription { get; set; }
-        public int MetarialTypeId { get; set; }
+        public string ShortDescription { get; set; }      
         public string MSRP { get; set; }
         public int SalePrice { get; set; }
         public string ColourCode { get; set; }
@@ -32,7 +31,7 @@ namespace BAL
         public int GroupId { get; set; }
         public float TaxAppliedPercentage { get; set; }
         public int Quantity { get; set; }
-        public int AvailableFor { get; set; }// 1=new,2=sale,3=outofstock
+        public int IsAvailableFor { get; set; }// 1=AVailable,2=sale,3=outofstock
         public int NewArrival { get; set; }
         public int Rating { get; set; }
         public int CreatedBy { get; set; }
@@ -50,7 +49,7 @@ namespace BAL
         public int SubCategoryId { get; set; }
         public String Category { get; set; }
         public String SubCategory { get; set; }
-
+        public String Description { get; set; }
     }
 
     public class BAOColourCodes
@@ -61,8 +60,8 @@ namespace BAL
 
     public class BAOAttributes
     {
-        public int AttributeId { get; set; }      
-        public String Size { get; set; }
+       // public int AttributeId { get; set; }
+        public String AttributeValue { get; set; }
 
     }
     public class BAOMinMaxSliderVals
@@ -74,7 +73,7 @@ namespace BAL
      public class BAOOffers
     {
         public int offerId{ get; set; }
-        public int offerTitle { get; set; }
+        public string offerTitle { get; set; }
         public int percentage { get; set; }
 
     }

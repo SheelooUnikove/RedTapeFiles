@@ -6,20 +6,28 @@
 <head runat="server">
     <title>redtape</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link href="css/facybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css/facybox_urls.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/account_page.css" />
     <script src="js/script.js"></script>
     <script src="js/modernizr.custom.js"></script>
-    <script src="js/animatescroll.js"></script></head>
- 
+    <script src="js/animatescroll.js"></script>
+    <script src="js/facybox.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+</head>
+ <body class="redtape_inner">
+    <form id="form1" runat="server">
     <header class="trans redtape_header">
   <div class="responsive_nav"> </div>
   <div class="header-1 trans">
     <div class="logo"> </div>
     <div class="trade">
       <div class="trade_1">
-        <a href="login_signup.aspx"><p>LOG IN</p></a>
+          <a runat="server" id="lnk_Login" href="login_signup.aspx"><p>LOG IN</p></a>
+        <asp:linkbutton runat="server" id="lnk_LogOut" Visible="false" OnClick="lnk_LogOut_Click">LOG OUT</asp:linkbutton>
       </div>
       <div class="trade_2">
         <div class="trade_2_top trans">
@@ -63,13 +71,13 @@
       <li>what's hot      
       </li>
       <li>redtape life</li>
-      <li class="nav_right nav_wishlist trans">
-        <div class="wishlist"></div>
-        <div class="cart_text">0</div>
+      <li class="nav_right nav_wishlist trans" onclick="window.open('wishlist.aspx','_self',false)">
+        <div class="wishlist"  title="My WishList"></div>
+        <div runat="server" id="lbl_WishListCount" class="cart_text"></div>
       </li>
       <li class="nav_right nav_cart trans">
-        <div class="cart"></div>
-        <div class="cart_text">(0)</div>
+        <div class="cart"  title="My Cart"></div>
+        <div runat="server" id="lbl_CartCount" class="cart_text"></div>
       </li>
       <li class="nav_right nav_search trans">
         <div class="search"></div>
@@ -85,14 +93,11 @@
       <li>&gt;</li>
       <li>NEW ARRIVALS</li>
     </ul>
-  </div></header>
-
-        
+  </div>
 
 
-<body class="redtape_inner">
-    <form id="form1" runat="server">
-        <div>
+    </header>
+    <div>
 
             <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Services>
@@ -161,7 +166,15 @@
 
     });
 		</script>
-
+ <script>
+     function copyAddress() {
+         $('#ctl00_ContentPlaceHolder1_txt_ShngStreet1').val($('#ctl00_ContentPlaceHolder1_txt_BlngStreet1').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngStreet2').val($('#ctl00_ContentPlaceHolder1_txt_BlngStreet2').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngPinCode').val($('#ctl00_ContentPlaceHolder1_txt_BlngPinCode').val());
+         $('#ctl00_ContentPlaceHolder1_drp_ShngCities').val($('#ctl00_ContentPlaceHolder1_drp_BlngCities').val());
+         $('#ctl00_ContentPlaceHolder1_drp_ShngStates').val($('#ctl00_ContentPlaceHolder1_drp_BlngStates').val());
+     }
+    </script>
            
  <script>
      $(function () {
