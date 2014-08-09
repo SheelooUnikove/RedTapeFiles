@@ -1,0 +1,232 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterRedTape.master.cs" Inherits="RedTapeWeb.MasterRedTape" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>redtape</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link href="css/facybox.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css/facybox_urls.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/account_page.css" />
+    <script src="js/script.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/animatescroll.js"></script>
+     <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+    <script src="js/facybox.js" type="text/javascript"></script>
+   
+    <script src="js/querystring-0.9.0-min.js"></script>
+</head>
+ <body class="redtape_inner">
+    <form id="form1" runat="server">
+    <header class="trans redtape_header">
+  <div class="responsive_nav"> </div>
+  <div class="header-1 trans">
+    <div class="logo"> </div>
+    <div class="trade">
+      <div class="trade_1">
+          <a runat="server" id="lnk_Login" href="login_signup.aspx"><p>LOG IN</p></a>
+          <a runat="server" href="account_detail.aspx" id="lbl_userName"></a>  <asp:linkbutton runat="server" id="lnk_LogOut" Visible="false" OnClick="lnk_LogOut_Click"> | LOG OUT</asp:linkbutton>
+      </div>
+      <div class="trade_2">
+        <div class="trade_2_top trans">
+          <div class="trade_logo1"></div>
+          <div class="trade_text">TRADE <br />
+            MARK</div>
+        </div>
+        <div class="trade_2_down trans">
+          <div class="trade_logo2"></div>
+          <div class="trade_text">LOCATE <br />
+            STORES</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="trans">
+    <ul>
+      <li class="nav_logo trans"></li>
+      <li>collections
+        <ul id="ulcollections">
+  <div class="sub_nav_cat">
+      <li class="in_sub_nv">FOOTWEAR</li>
+       <li>FOOTWEAR</li><li>FOOTWEAR</li><li>FOOTWEAR</li>
+
+  </div>
+             <div class="sub_nav_cat">
+      <li class="in_sub_nv">FOOTWEAR</li>
+       <li>FOOTWEAR</li><li>FOOTWEAR</li><li>FOOTWEAR</li>
+
+  </div>
+      <div class="sub_nav_cat">
+      <li class="in_sub_nv">FOOTWEAR</li>
+       <li>FOOTWEAR</li><li>FOOTWEAR</li><li>FOOTWEAR</li><li>FOOTWEAR</li>
+
+  </div>
+ 
+        </ul>
+      </li>
+      <li>lookbook</li>
+      
+      <li>what's hot      
+      </li>
+      <li>redtape life</li>
+      <li class="nav_right nav_wishlist trans" onclick="openWishlistPage();">
+          <script>
+              function openWishlistPage() {
+                  if ($('#ctl00_lbl_WishListCount').html() > 0) {
+                      window.open('wishlist.aspx', '_self', false);
+                  }
+              }
+              function openCARTPage() {
+                  if ($('#ctl00_lbl_CartCount').html().replace('(', '').replace(')', '') > 0) {
+                      window.open('shopping_cart.aspx', '_self', false);
+                  }
+              }
+          </script>
+        <div class="wishlist"  title="My WishList"></div>
+        <div runat="server" id="lbl_WishListCount" class="cart_text"></div>
+      </li>
+      <li class="nav_right nav_cart trans"  onclick="openCARTPage();">
+        <div class="cart"  title="My Cart"></div>
+        <div runat="server" id="lbl_CartCount" class="cart_text"></div>
+      </li>
+      <li class="nav_right nav_search trans">
+        <div class="search"></div>
+        <div></div>
+      </li>
+    </ul>
+  </nav>
+
+<div runat="server" id="viewpath" class="inner_nav campaign_inner_nav">
+    <ul>
+    	<li class="campaign_plus">+</li>
+      <li>collections</li>
+      <li>&gt;</li>
+      <li>NEW ARRIVALS</li>
+    </ul>
+  </div></header>
+    <div>
+
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Services>
+                <asp:ServiceReference Path="~/Services/ProductCats.asmx" />
+            </Services>
+        </asp:ScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <footer class="trans">
+  <div class="footer_nav_left" id="footer_links">
+    <div class="footer_nav_close">X</div>
+    <ul>
+    
+      <li>About us</li>
+      <li>Contact</li>
+      <li>Costumer care</li>
+      <li>carrier</li>
+      <li>Privacy Policy</li>
+      <li>Terms and Conditions</li>
+      <li>Shipping Policy</li>
+      <li>Size Guide</li>
+      <li>Return and Replacement</li>
+      <li>Site Map</li>
+    </ul>
+  </div>
+  <div class="footer_nav_right">
+    <div class="footer_social">
+      <div>Connnect with us</div>
+     <a href="#"><div class="footer_sprite_t trans"></div></a>
+      <a href="#"><div class="footer_sprite_f trans"></div></a>
+    </div>
+    <div class="subscribe">
+      <div>Subscribe to our Newsletter</div>
+      <div>
+        <input type="text" placeholder="enter email address" />
+        <div class="subscribe_sprit"></div>
+      </div>
+    </div>
+    <div class="debits">
+      <ul>
+        <li class="debitcards4"></li>
+        <li class="debitcards3"></li>
+        <li class="debitcards2"></li>
+        <li class="debitcards1"></li>
+      </ul>
+      <div>Copyright © 2014 redtape.com. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/jquery.cbpFWSlider.min.js"></script> 
+<script>
+    $(function () {
+
+        $('#cbp-fwslider').cbpFWSlider();
+
+        setInterval(function () {
+            if ($('.cbp-fwnext').is(":visible")) {
+                $('.cbp-fwnext').click();
+            }
+            else {
+                $('.cbp-fwdots').find('span').click();
+            }
+        }, 6000);
+
+    });
+		</script>
+ <script>
+     function copyAddress() {
+         $('#ctl00_ContentPlaceHolder1_txt_ShngFirstName').val($('#ctl00_ContentPlaceHolder1_txt_BlngFirstName').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngLastName').val($('#ctl00_ContentPlaceHolder1_txt_BlngLastName').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngContactNo').val($('#ctl00_ContentPlaceHolder1_txt_BlngContactNo').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngEmail').val($('#ctl00_ContentPlaceHolder1_txt_BlngEmail').val());    
+         $('#ctl00_ContentPlaceHolder1_txt_ShngStreet1').val($('#ctl00_ContentPlaceHolder1_txt_BlngStreet1').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngStreet2').val($('#ctl00_ContentPlaceHolder1_txt_BlngStreet2').val());
+         $('#ctl00_ContentPlaceHolder1_txt_ShngPinCode').val($('#ctl00_ContentPlaceHolder1_txt_BlngPinCode').val());
+         $('#ctl00_ContentPlaceHolder1_drp_ShngCities').val($('#ctl00_ContentPlaceHolder1_drp_BlngCities').val());
+         $('#ctl00_ContentPlaceHolder1_drp_ShngStates').val($('#ctl00_ContentPlaceHolder1_drp_BlngStates').val());
+     }
+    </script>
+           
+ <script>
+     $(function () {
+
+         //ProductCats.GetCategoriesList(2,success, fail);
+         RedTapeWeb.Services.ProductCats.GetCategoriesList(0, success, fail);
+     });
+
+
+     function success(results) {
+
+         $("#ulcollections").html('');
+         $("#ulcollections").append("<div class='sub_nav_cat'><li class='in_sub_nv' onclick='gotoproductcat(0,0)'>NEW ARRIVAL</li></div>");
+         for (var i = 0; i < results.length; i++) {
+             if (results[i].CategoryId == '0') {
+                 $("#ulcollections").append("<div class='sub_nav_cat dv" + results[i].SubCategoryId + "'><li class='in_sub_nv' onclick='gotoproductcat(" + results[i].CategoryId + ","+results[i].SubCategoryId+")'>" + results[i].SubCategory + "</li></div>");
+
+             }
+             else {
+                 $(".dv" + results[i].CategoryId).append("<li onclick='gotoproductcat(" + results[i].CategoryId +","+results[i].SubCategoryId+")'>" + results[i].SubCategory + "</li>");
+             }
+         }
+
+
+
+     }
+     function fail() {
+     }
+     function gotoproductcat(vals,subcat) {
+          
+         window.location.href = 'ProductsList.aspx?Category=' + vals+'&subcat='+subcat;
+     }
+                </script>
+
+
+
+        </div>
+    </form>
+</body>
+</html>
