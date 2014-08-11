@@ -30,15 +30,15 @@
             <asp:Repeater ID="rpt_WishList" runat="server">
                <ItemTemplate>
               <li id="<%#Eval("viewId") %>">
-            <div class="arrival_container"><img src="images/website/new_arrivals/img2.png" />
+            <div class="arrival_container"><img src="<%#Eval("imgUrl") %>" />
               <div class="new_arriv_name">
                 <p><%#Eval("productTitle") %></p>
               </div> <div class="new_arriv_price">
                 <p><%#Eval("salePrice") %></p>
               </div>
-              <div class="add_wishlist_pop trans">  <a href="images/website/new_arrivals/img2.png" rel="facybox" class="quick_view">
+              <div class="add_wishlist_pop trans">  <a href="<%#Eval("imgUrl") %>" rel="facybox" class="quick_view">
               <div class="search"></div></a></div>
-            </div><div class="by_nw_btn" onclick="buynow(<%#Eval("viewId") %>,<%#Eval("productId") %>);">buy now</div>
+            </div><div class="by_nw_btn" onclick="buynow();">buy now</div>
           </li>
             </ItemTemplate>
           </asp:Repeater>
@@ -123,17 +123,19 @@
 
         </script>
     <script>
-        function buynow(viewid, productId) {
-            var UId = '<%=Session["MembershipNo"] %>';
-            if (UId.toString() == "")
-                UId = 0;
-           // RedTapeWeb.Services.ProductCats.SaveUserViewProducts(productId, UId, 0, 0, success, fail);
-            function success() {
-                $('#' + viewid).remove();                
-            }
-            function fail(error) {
-                alert(error);
-            }
+        function buynow() {
+            //var UId = '<%=Session["MembershipNo"] %>';
+           // if (UId.toString() == "")
+           //     UId = 0;
+           //// RedTapeWeb.Services.ProductCats.SaveUserViewProducts(productId, UId, 0, 0, success, fail);
+           // function success() {
+           //     $('#' + viewid).remove();                
+           // }
+           // function fail(error) {
+           //     alert(error);
+            // }
+            window.open('productdetails.aspx?categoryId=2&productid=1', '_self', false);
+            
         }
     </script>
 </asp:Content>

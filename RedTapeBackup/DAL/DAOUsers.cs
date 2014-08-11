@@ -122,7 +122,7 @@ namespace DAL
         /// <returns>ListData</returns>
         public DataTable GetUserStatusList(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataTable("sp_GetUserStatusList", objUsers.Membership_No, objUsers.viewType,objUsers.SessionId);
+            return MsAppDataUtility.ExecuteDataTable("sp_GetUserStatusList", objUsers.Membership_No, objUsers.viewType,BAOUsers.CurrentSeesionId);
         }
         /// <summary>
         /// SaveUserViewProducts  0-delete,1-recentview,2-addtocart,3-wishlist
@@ -131,7 +131,7 @@ namespace DAL
         /// <returns>ListData</returns>
         public DataTable SaveUserViewProducts(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId, objUsers.Membership_No, objUsers.viewType,objUsers.qty);
+            return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId, objUsers.Membership_No, objUsers.viewType,objUsers.qty,BAOUsers.CurrentSeesionId);
         }
         /// <summary>
         /// GetCountryList
@@ -164,7 +164,7 @@ namespace DAL
         /// <returns></returns>
         public int SaveUserViewProducts(int productid, string  MembershipId, int viewType, int qty)
         {
-            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", productid, MembershipId, viewType, qty).Rows[0][0]);
+            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", productid, MembershipId, viewType, qty,BAOUsers.CurrentSeesionId).Rows[0][0]);
         }       
 
     }

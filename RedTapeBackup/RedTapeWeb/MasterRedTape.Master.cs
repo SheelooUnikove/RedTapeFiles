@@ -8,6 +8,7 @@ using BAL;
 using DAL;
 using System.Data;
 using System.Web.UI.HtmlControls;
+
 namespace RedTapeWeb
 {
     public partial class MasterRedTape : System.Web.UI.MasterPage
@@ -20,28 +21,29 @@ namespace RedTapeWeb
 
             if (!IsPostBack)
             {
-                string SessionID = Session.SessionID;
+                BAOUsers.CurrentSeesionId = Session.SessionID;
                 if (Session["MembershipNo"] != null)
                 {
+                    objBAOUsers.Membership_No = Session["MembershipNo"].ToString();
                     lnk_Login.Visible = false;
                     lnk_LogOut.Visible = true;
                     lbl_userName.InnerHtml = BAOUsers.userName.ToString();
                     lbl_WishListCount.InnerHtml = BAOUsers.WishListCount.ToString();
-                    lbl_CartCount.InnerHtml = "(" + BAOUsers.CartCount + ")";
+                    //lbl_CartCount.InnerHtml = "(" + BAOUsers.CartCount + ")";
                 }
                 else
                 {
                     objBAOUsers.Membership_No = "0";
-                    objBAOUsers.viewType = 3;
-                    DataTable dtGetUserStatusList = objDAOUsers.GetUserStatusList(objBAOUsers);
-                    if (dtGetUserStatusList.Rows.Count > 0)
-                    {
-                        BAOUsers.CartCount = Convert.ToInt32(dtGetUserStatusList.Rows.Count);
-                        HtmlGenericControl lbl_CartCount = (HtmlGenericControl)Page.Master.FindControl("lbl_CartCount");
-                        lbl_CartCount.InnerHtml = "(" + BAOUsers.CartCount + ")";                       
-                    }
+                } 
+                objBAOUsers.viewType = 2;
+                DataTable dtGetUserStatusList = objDAOUsers.GetUserStatusList(objBAOUsers);
+                if (dtGetUserStatusList.Rows.Count > 0)
+                {
+                    BAOUsers.CartCount = Convert.ToInt32(dtGetUserStatusList.Rows.Count);
+                    lbl_CartCount.InnerHtml = "(" + BAOUsers.CartCount + ")";
                 }
             }
+
         }
         protected void lnk_LogOut_Click(object sender, EventArgs e)
         {

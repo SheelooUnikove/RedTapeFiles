@@ -68,20 +68,22 @@ namespace BAL
             }
 
 
-            //List<BAOImages> BAOImglst = new List<BAOAttributes>();
-            //foreach (DataRow dr in ds.Tables[2].Rows)
-            //{
-            //    BAOImages BAOImagesItem = new BAOImages();
-            //    BAOImagesItem.ImgURL = dr["attributeValue"].ToString();
-            //    AttributesSizelst.Add(BAOAttributesItem);
+            List<BAOImageURL> BAOImglst = new List<BAOImageURL>();
+            foreach (DataRow dr in ds.Tables[2].Rows)
+            {
+                BAOImageURL BAOImagesItem = new BAOImageURL();
+                BAOImagesItem.imageId = ClsGeneral.getInt32(dr["imgId"].ToString());
+                BAOImagesItem.imageURL = dr["ImgUrl"].ToString();
+                BAOImglst.Add(BAOImagesItem);
 
-            //}
+            }
 
 
             List<ProductDetails> ProductDetailslst = new List<ProductDetails>();
             ProductDetails ProductDetailItem = new ProductDetails();
             ProductDetailItem.ProductDeatilslst = Productlst;
             ProductDetailItem.Sizelst =AttributesSizelst;
+            ProductDetailItem.ProductImageURLlst = BAOImglst;
             ProductDetailslst.Add(ProductDetailItem);
             return ProductDetailslst;
 

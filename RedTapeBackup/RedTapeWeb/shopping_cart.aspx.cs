@@ -18,7 +18,7 @@ namespace RedTapeWeb
         {
             if (Session["MembershipNo"] != null)
             {
-                objBAOUsers.userId = Convert.ToInt32(Session["MembershipNo"]);
+                objBAOUsers.Membership_No = Session["MembershipNo"].ToString();
                 objBAOUsers.viewType = 2;
                 DataTable dtGetUserStatusList = objDAOUsers.GetUserStatusList(objBAOUsers);
                 if (dtGetUserStatusList.Rows.Count > 0)

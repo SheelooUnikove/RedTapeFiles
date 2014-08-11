@@ -51,7 +51,19 @@ namespace DAL
             //return Mapper.ToProductListing(MsAppDataUtility.ExecuteDataTable("sp_GetProductsList", CategoryId, colorCodes, sizes, LowPrice, HighPrice, OfferTypeId, StartIndex, EndIndex,sortby));
             return Mapper.ToProductListing(MsAppDataUtility.ExecuteDataTable("sp_GetProductsListByCat", CategoryId, StartIndex, EndIndex));
         }  
-
+        /// <summary>
+        /// Get All pairedup products
+        /// </summary>
+        public DataTable GetAllPairProducts(int ProductId)        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetProductPairWith", ProductId);
+        }  
+ /// <summary>
+        /// Get All Colors products
+        /// </summary>
+        public DataTable GetAllColors(int ProductId)
+        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetProductColorAvail", ProductId);
+        }  
 
     }
 }

@@ -35,13 +35,24 @@
 		
 		<div class="cart_hpl_fotr">
 			<div class="hlp_cntct">Need Help? Contact us 1800 000 0000</div>
-			<div class="cart_plc_order">place order</div>
+			<div class="cart_plc_order" onclick="plcorder();">place order</div>
 			<div class="cart_cntun_shpng" onclick="window.open('Default.aspx','_self',false)">continue shopping</div>
-		</div>		
-		
+		</div>			
 	</div>	
 </div>
+    
+
     <script>
+        function plcorder() {
+            var UId = '<%=Session["MembershipNo"] %>';
+            if (UId.toString() == "") {
+                window.open('login_signup.aspx?returnurl=yes', '_self', false);
+            }
+            else {
+               // window.open('order_confirmation.aspx', '_self', false);
+            }           
+        }
+
         function deleteFromWishList(viewid, productId,Amount) {
             var UId = '<%=Session["MembershipNo"] %>';
             if(UId.toString()=="")

@@ -73,7 +73,6 @@ namespace BAL
 
         public string parm { get; set; }
         public int SelectProductID { get; set; }
-        public string  SessionId { get; set; }
         public int SHP_PROD_ID { get; set; }
         public int SHP_PROD_CAT_ID { get; set; }
         public int SHP_PROD_SUB_CAT_ID { get; set; }
@@ -98,5 +97,6 @@ namespace BAL
         public static int WishListCount { get; set; }
         public static int CartCount { get; set; }
         public static string  currentUserType { get; set; }
+        public static string CurrentSeesionId { get; set; }
     }
 }

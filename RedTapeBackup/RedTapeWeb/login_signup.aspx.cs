@@ -18,7 +18,11 @@ namespace RedTapeWeb
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {    
+            {
+               
+                    ViewState["PreviousPage"] = Request.UrlReferrer;//Saves the Previous page url in ViewState
+               
+
                 // check your cookies is null or not
                 if (Request.Cookies["myCockie"] != null) //Cookie Exists??
                 {
@@ -102,6 +106,17 @@ namespace RedTapeWeb
                     BAOUsers.CartCount = Convert.ToInt32(dtUserPersonalDetails.Rows[0]["AddToCartCount"]);
                     BAOUsers.WishListCount = Convert.ToInt32(dtUserPersonalDetails.Rows[0]["WishListCount"]);
                     BAOUsers.userName = dtUserPersonalDetails.Rows[0]["FirstName"].ToString();
+                    if (Request.QueryString["returnurl"] == "yes")
+                    {
+
+                        if (ViewState["PreviousPage"] != null)	//Check if the ViewState 
+                        //contains Previous page URL
+                        {
+                            Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to 
+                            //Previous page by retrieving the PreviousPage Url from ViewState.
+                        }
+                    }
+                    else
                     Response.Redirect("Default.aspx",false);
                 }
                 else
@@ -161,6 +176,17 @@ namespace RedTapeWeb
                     BAOUsers.WishListCount = Convert.ToInt32(dtUserPersonalDetails.Rows[0]["WishListCount"]);
                     BAOUsers.userName = dtUserPersonalDetails.Rows[0]["FirstName"].ToString();
                     BAOUsers.currentemail = username;
+                    if (Request.QueryString["returnurl"] == "yes")
+                    {
+
+                        if (ViewState["PreviousPage"] != null)	//Check if the ViewState 
+                        //contains Previous page URL
+                        {
+                            Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to 
+                            //Previous page by retrieving the PreviousPage Url from ViewState.
+                        }
+                    }
+                    else
                     Response.Redirect("Default.aspx");
                 }
                 else
@@ -182,6 +208,17 @@ namespace RedTapeWeb
                 BAOUsers.userName = dtFBLogin.Rows[0]["FirstName"].ToString();
                 BAOUsers.currentemail = objBAOUsers.emailAddress;
                 BAOUsers.currentUserType = dtFBLogin.Rows[0]["userType"].ToString();
+                if (Request.QueryString["returnurl"] == "yes")
+                {
+
+                    if (ViewState["PreviousPage"] != null)	//Check if the ViewState 
+                    //contains Previous page URL
+                    {
+                        Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to 
+                        //Previous page by retrieving the PreviousPage Url from ViewState.
+                    }
+                }
+                else
                 Response.Redirect("Default.aspx");
             }
             

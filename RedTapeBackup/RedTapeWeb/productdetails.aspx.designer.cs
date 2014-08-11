@@ -11,5 +11,32 @@ namespace RedTapeWeb {
     
     
     public partial class productdetails {
+        
+        /// <summary>
+        /// rptrcolors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrcolors;
+        
+        /// <summary>
+        /// rptrPairedWith control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrPairedWith;
+        
+        /// <summary>
+        /// rpt_RecentViewList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_RecentViewList;
     }
 }

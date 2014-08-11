@@ -19,7 +19,7 @@ namespace BAL
     {       
         public List<BAOAttributes> Sizelst { get; set; }
         public List<BAOProduct> ProductDeatilslst { get; set; }
-        
+        public List<BAOImageURL> ProductImageURLlst { get; set; }
     }
     
     public class BAOProduct
@@ -90,4 +90,11 @@ namespace BAL
         public int percentage { get; set; }
 
     }
+
+     public class BAOImageURL
+     {
+         public int imageId { get; set; }      
+         public string imageURL { get; set; }
+
+     }
 }

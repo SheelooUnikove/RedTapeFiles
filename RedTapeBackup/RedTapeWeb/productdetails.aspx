@@ -6,15 +6,65 @@
 		<div class="main_product_image"> <img src="images/website/product-page/img3.png" /></div>
 		<div class="prdct_lnkng_main">
 		<div class="zom"> <span class=""></span><p class="">ZOOM +</p>  </div>
-		<div class="ad_to_whslst"> <span class=""></span><p class="">ADD TO WISHLIST</p>  </div>
+		<div class="ad_to_whslst"> <span class=""></span><p class="" onclick="addtowishlist();">ADD TO WISHLIST</p>  </div>
 		</div>
+        <script >
+            function addtowishlist() {
+                var UId = '<%=Session["MembershipNo"] %>';
+                if (UId.toString() == "") {
+                    window.open('login_signup.aspx?returnurl=yes', '_self', false);
+                }
+                else {
+                    var proid = $.QueryString("productid");
+                    RedTapeWeb.Services.ProductCats.SaveUserViewProducts(proid, UId, 3, 0, success, fail);
+                }
+                function success(result) {
+                    $('#ctl00_lbl_WishListCount').html(result);
+                }
+                function fail(error) {
+                    alert(error);
+                }
+            }
+            function buynow() {
+                if ( $( ".clssize option:selected" ).text() == 'SIZE') {
+                    alert('Please select size');
+                }
+                else if ($(".clsqty option:selected" ).text() == 'QTY') {
+                    alert('Please select Quantity');
+                }
+                else {
+                    var UId = '<%=Session["MembershipNo"] %>';
+                    if (UId.toString() == "")
+                        UId = 0;
+                    var proid = $.QueryString("productid");
+                    RedTapeWeb.Services.ProductCats.SaveUserViewProducts(proid, UId, 2, $(".clsqty option:selected").text(), success, fail);
+                }
+                function success(result) {
+                   // var UId = '<%=Session["MembershipNo"] %>';
+                   // if (UId.toString() != "") {
+                       // var getcontwish = $('#ctl00_lbl_WishListCount').html();
+                       // if (getcontwish > 0) {
+                           // $('#ctl00_lbl_WishListCount').html(parseInt(getcontwish)-1);
+                            //var cont = $('#ctl00_lbl_CartCount').html().replace('(', '').replace(')', '');
+                           
+                       // }
+                    //}
+                    $('#ctl00_lbl_CartCount').html('(' + result + ')');
+                    window.open('shopping_cart.aspx', '_self', false);
+                   
+                }
+                function fail(error) {
+                    alert(error);
+                }
+            }
 
+        </script>
 		<div class="product_view">
-			<ul>
-	            <li><img src="images/website/product-page/img3.png" /></li>
+			<ul id="imgarr"> 
+                <%--<li><img src="images/website/product-page/img3.png" /></li>
 				<li><img src="images/website/product-page/img4.png" /></li>
 				<li><img src="images/website/product-page/img5.png" /></li>
-				<li><img src="images/website/product-page/img6.png" /></li>
+				<li><img src="images/website/product-page/img6.png" /></li> --%>
 			</ul>
 		</div>
 	</div>
@@ -35,7 +85,7 @@
 				<select class="clssize">
 					<option selected="selected">SIZE</option>					 
 				</select>
-				<select>
+				<select class="clsqty">
 					<option selected="selected">QTY</option>
 					<option>1</option>
 					<option>2</option>
@@ -51,17 +101,18 @@
 			</div>
 		</div>
 		
-		<div class="buy_now">buy now</div>
+		<div class="buy_now" onclick="buynow();">buy now</div>
 		<div class="buy_now size_guide">size guide</div>
 		
 	
 	
-		<div class="color_option">select colour
+		<div class="color_option">Availble colour
 			<ul>
-				<li style="background:#75410f"></li>
-				<li style="background:#080808"></li>
-				<li style="background:#d07012"></li>
-				<li style="background:#a4a4a4"></li>
+                <asp:Repeater ID="rptrcolors" runat="server">
+               <ItemTemplate>
+				<li style="background:<%#Eval("colourCode") %>"></li>	
+                   </ItemTemplate>
+                    </asp:Repeater>			 
 			</ul>
 		</div>
         
@@ -80,19 +131,21 @@
 	</div>
 	
 	
-	<div class="product_detail_pair">
-		<p class="recent_heading">PAIR THIS UP WITH</p>
+	 
 		 
          
-         
-         
-       <ul  id="flexiselDemo1" class="flexidemo">
-			<li><div><img src="images/website/product-page/img10.png" /><a href="http://th03.deviantart.net/fs39/300W/i/2008/350/4/9/escalator_by_mickeyxmouse.jpg" rel="facybox" class="quick_view"><div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
-			<li><div><img src="images/website/product-page/img11.png" /><a href="http://th03.deviantart.net/fs39/300W/i/2008/350/4/9/escalator_by_mickeyxmouse.jpg" rel="facybox" class="quick_view"><div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
-			<li><div><img src="images/website/product-page/img12.png" /><a href="http://th03.deviantart.net/fs39/300W/i/2008/350/4/9/escalator_by_mickeyxmouse.jpg" rel="facybox" class="quick_view"><div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
-		</ul>
+ 
+	         <div class="product_detail_pair">
+		<p class="recent_heading">PAIR THIS UP WITH</p>
+		  <ul  id="flexiselDemo1" class="flexidemo">
+                <asp:Repeater ID="rptrPairedWith" runat="server">
+               <ItemTemplate>
+			<li><div><img src="<%#Eval("imgUrl") %>" /><a href="<%#Eval("imgUrl") %>" rel="facybox" class="quick_view">
+                <div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
+                   </ItemTemplate>
+            </asp:Repeater>
+		 </ul>
 	</div>
-	
 	
 		
 	<div class="product_detail_pair">
@@ -107,16 +160,51 @@
     <div class="product_detail_pair">
 		<p class="recent_heading">recently viewed</p>
 		  <ul  id="flexiselDemo3" class="flexidemo">
-			<li><div><img src="images/website/product-page/img10.png" /><a href="http://th03.deviantart.net/fs39/300W/i/2008/350/4/9/escalator_by_mickeyxmouse.jpg" rel="facybox" class="quick_view"><div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
-			<li><div><img src="images/website/product-page/img11.png" /><a href="http://th03.deviantart.net/fs39/300W/i/2008/350/4/9/escalator_by_mickeyxmouse.jpg" rel="facybox" class="quick_view"><div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
-			<li><div><img src="images/website/product-page/img12.png" /><a href="http://th03.deviantart.net/fs39/300W/i/2008/350/4/9/escalator_by_mickeyxmouse.jpg" rel="facybox" class="quick_view"><div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
-		</ul>
+                <asp:Repeater ID="rpt_RecentViewList" runat="server">
+               <ItemTemplate>
+			<li><div><img src="<%#Eval("imgUrl") %>" />
+                <a href="<%#Eval("imgUrl") %>" rel="facybox" class="quick_view">
+                    <div class="quik_view"> <span class="quik_spirit"></span><p class="quik_text">QUICK VIEW</p>  </div></a></div></li>
+                </ItemTemplate>
+            </asp:Repeater>
+		 </ul>
 	</div>
 	
 	
 	
 	
 	</div>
+<script>
+
+    $(document).ready(function ($) {
+
+        var categoryId = $.QueryString("categoryId");
+        var productid = $.QueryString("productid");
+        RedTapeWeb.Services.ProductCats.GetProductDetails(categoryId, productid, getProductDetails, onfail);
+      //  getPageData();
+
+    });
+
+    function getProductDetails(results) {
+        
+        //Productlst
+        // alert(results[0].Sizelst.length);
+        $(".pcolor").text("COLOUR - " + results[0].ProductDeatilslst[0].Colour);
+        $(".categ").text("CATEGORY - " + results[0].ProductDeatilslst[0].Category);
+        $(".prdct_dtal_hdng").text('').text(results[0].ProductDeatilslst[0].ProductCode);
+        $(".t_price").text('').text(results[0].ProductDeatilslst[0].SalePrice);      
+         $(".img0").append("<img src=" + results[0].ProductImageURLlst[0].imageURL + "  />");
+       $.each(results[0].ProductImageURLlst, function (i) { $("#imgarr").append("<li><img src='" + results[0].ProductImageURLlst[i].imageURL + "' /></li>"); });
+
+        $.each(results[0].Sizelst, function (i) { $(".clssize").append("<option>" + results[0].Sizelst[i].AttributeValue + "</option>"); });
+
+    }
+    function onfail()
+        { }
+</script>
+
+
+    
     
 <script>
 
@@ -258,11 +346,11 @@
 
     });
 </script>
-
+     
  <script type="text/javascript">
      jQuery(document).ready(function ($) {
          $('a[rel*=facybox]').facybox({
-             // noAutoload: true
+              // noAutoload: true
 
          });
 
@@ -272,31 +360,6 @@
 
      });
   </script>
-<script>
-
-    $(window).load(function () {
-
-        var categoryId = $.QueryString("categoryId");
-        var productid = $.QueryString("productid");
-        RedTapeWeb.Services.ProductCats.GetProductDetails(categoryId, productid, getProductDetails, onfail);
-      //  getPageData();
-
-    });
-
-    function getProductDetails(results) {
-        
-        //Productlst
-        // alert(results[0].Sizelst.length);
-        $(".pcolor").text("COLOUR - " + results[0].ProductDeatilslst[0].Colour);
-        $(".categ").text("CATEGORY - " + results[0].ProductDeatilslst[0].Category);
-        $(".prdct_dtal_hdng").text('').text(results[0].ProductDeatilslst[0].ProductCode);
-        $(".t_price").text('').text(results[0].ProductDeatilslst[0].SalePrice);      
-
-        $.each(results[0].Sizelst, function (i) { $(".clssize").append("<option>" + results[0].Sizelst[i].AttributeValue + "</option>"); });
-
-    }
-    function onfail()
-        { }
-</script>
+ 
 
 </asp:Content>
