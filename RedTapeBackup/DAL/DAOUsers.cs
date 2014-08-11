@@ -131,7 +131,7 @@ namespace DAL
         /// <returns>ListData</returns>
         public DataTable SaveUserViewProducts(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId, objUsers.userId, objUsers.viewType);
+            return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId, objUsers.Membership_No, objUsers.viewType,objUsers.qty);
         }
         /// <summary>
         /// GetCountryList

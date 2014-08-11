@@ -65,8 +65,18 @@ namespace BAL
                 BAOAttributes BAOAttributesItem = new BAOAttributes();
                 BAOAttributesItem.AttributeValue = dr["attributeValue"].ToString();
                 AttributesSizelst.Add(BAOAttributesItem);
-
             }
+
+
+            //List<BAOImages> BAOImglst = new List<BAOAttributes>();
+            //foreach (DataRow dr in ds.Tables[2].Rows)
+            //{
+            //    BAOImages BAOImagesItem = new BAOImages();
+            //    BAOImagesItem.ImgURL = dr["attributeValue"].ToString();
+            //    AttributesSizelst.Add(BAOAttributesItem);
+
+            //}
+
 
             List<ProductDetails> ProductDetailslst = new List<ProductDetails>();
             ProductDetails ProductDetailItem = new ProductDetails();

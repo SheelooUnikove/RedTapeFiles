@@ -38,7 +38,7 @@ namespace RedTapeWeb
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(" + ex .Message+ ");", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(" + ex.Message + ");", true);
             }
 
         }
