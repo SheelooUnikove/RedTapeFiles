@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default.aspx" title="Home"  description="Home">
+    <siteMapNode url="login_signup.aspx" title="Login"  description="Login" />
+    <siteMapNode url="account_detail.aspx" title="AccountDetail"  description="AccountDetail" />
+    <siteMapNode url="change_password.aspx" title="ChangePassword"  description="ChangePassword" />
+    <siteMapNode url="order_confirmation.aspx" title="OrderConfirmation"  description="OrderConfirmation" />
+    <siteMapNode url="productdetails.aspx" title="ProductDetails"  description="ProductDetails" />
+    <siteMapNode url="ProductsList.aspx" title="Collections"  description="Collections" />
+    <siteMapNode url="purchase_history.aspx" title="PurchaseHistory"  description="PurchaseHistory" />
+    <siteMapNode url="rewardpoints.aspx" title="RewardPoints"  description="RewardPoints" />
+    <siteMapNode url="shopping_cart.aspx" title="ShoppingCart"  description="ShoppingCart" />
+    <siteMapNode url="update_address.aspx" title="UpdateAddress"  description="UpdateAddress" />
+    <siteMapNode url="wishlist.aspx" title="WishList"  description="WishList" />
+  </siteMapNode>
+</siteMap>
