@@ -5,40 +5,38 @@
 		
 		<div class="whslst_lft_nav">
 			<ul>
-				<a href="account_detail.aspx"><li>ACCOUNT DETAILS</li></a>
-				<a href="change_password.aspx"><li>CHANGE PASSWORD</li></a>
-				<a href="update_address.aspx"><li>UPDATE ADDRESSES</li></a>
-				<a href="purchase_history.aspx"><li>PURCHASE HISTORY</li></a>
-				<a href="wishlist.aspx"><li>wish list</li></a>
-				<a href="rewardpoints.aspx"><li>reward points</li></a>
+				<li><a href="account_detail.aspx">ACCOUNT DETAILS</a></li>
+				<li><a href="change_password.aspx">CHANGE PASSWORD</a></li>
+				<li><a href="update_address.aspx">UPDATE ADDRESSES</a></li>
+				<li><a href="purchase_history.aspx">PURCHASE HISTORY</a></li>
+				<li><a href="wishlist.aspx">wish list</a></li>
+				  <li><a href="reward_points.aspx">REWARD POINTS</a></li>
 			</ul>
 		</div>		
-</div>
-	
-	
+</div>	
 	
 	<div class="right_container account_right trans">
 		
 
 		<h2>WISHLIST</h2>
-		<div class="text"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. </p></div>
-
+		<div class="text"><p>Style you’ve been dreaming of, add to your wishlist and we’ll make it happen for you. </p></div>
+         <h2 id="msg" runat="server"></h2>
 		
-	<div class="latst_fotwer_slidr">
+	<div class="latst_fotwer_slidr" id="divWishList" runat="server">
       <div class="product_nw_ar">
         <ul id="flexiselDemo1" class="flexidemo">
             <asp:Repeater ID="rpt_WishList" runat="server">
                <ItemTemplate>
               <li id="<%#Eval("viewId") %>">
-            <div class="arrival_container"><img src="<%#Eval("imgUrl") %>" />
+              <div class="arrival_container"><img src="<%#Eval("imgUrl") %>" />
               <div class="new_arriv_name">
-                <p><%#Eval("productTitle") %></p>
+                <p><%#Eval("ProductCode") %></p>
               </div> <div class="new_arriv_price">
-                <p><%#Eval("salePrice") %></p>
+                <p><span>&#x20B9; </span><%#Eval("salePrice") %></p>
               </div>
-              <div class="add_wishlist_pop trans">  <a href="<%#Eval("imgUrl") %>" rel="facybox" class="quick_view">
+              <div class="add_wishlist_pop trans">  <a href="<%#Eval("imgBigUrl") %>" rel="facybox" class="quick_view">
               <div class="search"></div></a></div>
-            </div><div class="by_nw_btn" onclick="buynow();">buy now</div>
+            </div><div class="by_nw_btn" onclick="buynow(<%#Eval("productId") %>,<%#Eval("categoryId") %>);">buy now</div>
           </li>
             </ItemTemplate>
           </asp:Repeater>
@@ -116,15 +114,13 @@
                            account_nav_flag = 0;
                        }
                    }
-
                });
-
         });
 
-        </script>
-    <script>
-        function buynow() {         
-            window.open('productdetails.aspx?categoryId=2&productid=1', '_self', false);            
-        }
-    </script>
+        </script>   
+    <style>
+        .nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
+    display: block !important;
+}
+    </style>
 </asp:Content>

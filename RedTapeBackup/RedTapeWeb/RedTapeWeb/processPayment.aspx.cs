@@ -9,11 +9,11 @@ namespace RedTapeWeb
 {
     public partial class processPayment : System.Web.UI.Page
     {
-      
-      string workingKey = "71BE96B739B35D89263E0DFD2C29115D";//put in the 32bit alpha numeric key in the quotes provided here 	
+
+        string workingKey = System.Configuration.ConfigurationManager.AppSettings["WorkingKey"];//"1227CB4825F2676C4D422CAFE291280A";//put in the 32bit alpha numeric key in the quotes provided here 	
       string ccaRequest = "";
       public string strEncRequest = "";
-      public string strAccessCode = "AVSC02BH27BB43CSBB";// put the access key in the quotes provided here.
+      public string strAccessCode = System.Configuration.ConfigurationManager.AppSettings["AccessCode"]; //"AVPC02BH27BB41CPBB";// put the access key in the quotes provided here.
 
         protected void Page_Load(object sender, EventArgs e)
         {

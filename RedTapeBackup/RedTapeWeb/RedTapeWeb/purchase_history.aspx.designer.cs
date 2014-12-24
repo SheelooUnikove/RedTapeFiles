@@ -11,5 +11,25 @@ namespace RedTapeWeb {
     
     
     public partial class purchase_history {
+        
+        /// <summary>
+        /// purchaseContentPara control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl purchaseContentPara;
+        
+   
+        
+        /// <summary>
+        /// rpt_OrderList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpt_OrderList;
     }
 }

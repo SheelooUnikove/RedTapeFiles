@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+
+.slick-slide:nth-child(2)
+{
+	
+}
+
+.slick-slide:nth-child(2) .look_pointer_container
+{
+	left: 45%;top: 60%;
+}
+
+.slick-slide:nth-child(3) .look_pointer_container
+{
+	left: 35%;top: 40%;
+}
+
+.slick-slide:nth-child(4) a:nth-child(2) .look_pointer_container
+{
+	left: 24%;top: 30%;
+}
+
+.slick-slide:nth-child(4) a:nth-child(4) .look_pointer_container
+{
+	left: 24%;top:75%;
+}
+
+@media screen and (max-width: 1000px)
+
+{
+	.slick-slide:nth-child(4) a:nth-child(2) .look_pointer_container
+{
+	left: 24%;top: 25%;
+}
+
+.slick-slide:nth-child(4) a:nth-child(4) .look_pointer_container
+{
+	left: 24%;top: 60%;
+}
+
+	
+}
+
+
+
+@media screen and (max-width: 790px)
+
+{
+	
+	.slick-slide:nth-child(4)
+	{
+		background-position:20% 0px;
+	}
+	.slick-slide:nth-child(3)
+	{
+		background-position:40% 0px;
+	}
+	.slick-slide:nth-child(2) .look_pointer_container
+{
+	left: 60%;top: 45%;
+}
+
+.slick-slide:nth-child(3) .look_pointer_container
+{
+	left: 35%;top: 25%;
+}
+
+.slick-slide:nth-child(4) a:nth-child(2) .look_pointer_container
+{
+	left: 24%;top: 20%;
+}
+
+.slick-slide:nth-child(4) a:nth-child(4) .look_pointer_container
+{
+	left: 24%;top: 55%;
+}
+
+
+
+}
+
+@media screen and (max-width: 560px)
+
+{
+	.slick-slide:nth-child(2) 
+	{
+		background-position:50% 0px;
+	}
+	
+	.slick-slide:nth-child(2) .look_pointer_container
+{
+	left: 40%;top: 40%;
+}
+	.slick-slide:nth-child(4) a:nth-child(2) .look_pointer_container
+{
+	left: 24%;top: 21%;
+}
+
+.slick-slide:nth-child(4) a:nth-child(4) .look_pointer_container
+{
+	left: 24%;top: 50%;
+}
+}

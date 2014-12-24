@@ -1,0 +1,72 @@
+#facybox .body
+
+{
+	border-top:14px solid #e92629;
+	position:relative;
+	width:427px;
+	height:194px;
+	
+}
+
+#facybox .close
+
+{
+	top: -27px;
+right: -15px;
+}
+
+.popup_left
+{
+	position: relative;
+width: 30%;
+height: 100px;
+background-repeat: no-repeat;
+float: left;
+background-image:url(../images/website/popup/tick.png);
+}
+
+.popup_close
+{
+	background-image:url(../images/website/popup/cross.png);
+}
+.popup_light
+{
+	background-image:url(../images/website/popup/light.png);
+}
+
+.popup_right
+{
+	height:auto;
+	width:70%;
+	float:left;
+}
+
+.popup_right p
+{
+	font-size:14px;
+	color:#1a1a1a;
+	margin-left:10px;
+
+}
+
+.popup_btn
+{
+width: 100px;
+height: 30px;
+line-height: 30px;
+text-align: center;
+background: black;
+margin-top: 20px;
+color:#fff;
+float:left;
+font-family: 'GothamRoundedBold';
+margin-left:10px;
+}
+
+ @media screen and (max-width:427px) {
+	 #facybox .body
+
+{
+	width:100%;
+}
+ }

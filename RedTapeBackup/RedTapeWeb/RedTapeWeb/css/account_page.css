@@ -16,7 +16,7 @@ padding-right: 3%;
 {
 	width:30%;
 }
-.add_wishlist_pop
+.account_right .add_wishlist_pop
 {
 	width:33px;
 }
@@ -25,7 +25,30 @@ padding-right: 3%;
 	margin-top:-30px;
 }
 
+@media screen and (max-width:1100px) {
+	.latst_fotwer_slidr li
+	{
+		width:33.33%;
+	}
+	
+}
+
+@media screen and (max-width:960px) {
+	.latst_fotwer_slidr li
+	{
+		width:50%;
+	}
+	
+}
+
+
 @media screen and (max-width:790px) {
+	
+	.latst_fotwer_slidr li
+	{
+		width:33.33%;
+	}
+	
 .add_wishlist_pop
 {
 	bottom:34px;
@@ -43,4 +66,34 @@ top:101px;
 	color:#fff;
 }
 
+}
+
+@media screen and (max-width:600px) {
+	
+	.latst_fotwer_slidr li
+	{
+		width:50%;
+	}
+	
+}
+
+
+@media screen and (max-width:500px) {
+	
+	.latst_fotwer_slidr li
+	{
+		width:100%;
+		padding:15%;
+	}
+	
+}
+
+@media screen and (max-width:320px) {
+	
+	.latst_fotwer_slidr li
+	{
+		width:100%;
+		padding:5%;
+	}
+	
 }

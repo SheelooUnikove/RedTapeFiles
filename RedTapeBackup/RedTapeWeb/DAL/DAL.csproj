@@ -30,9 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BAL">
+      <HintPath>..\BAL\bin\Debug\BAL.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>\\SHEELOO_SACHAN\SharedFolders\RedTape\RedTapeWeb\DAL\bin\Debug\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <HintPath>..\..\..\..\AdminPizza\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -49,15 +52,10 @@
     <Compile Include="DAOProduct.cs" />
     <Compile Include="DAOUsers.cs" />
     <Compile Include="iStrat.cs" />
+    <Compile Include="mailExchange.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="MsAppDataUtility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BAL\BAL.csproj">
-      <Project>{6fbc61f4-cc39-4a8b-9823-e9dfd07bde92}</Project>
-      <Name>BAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -153,6 +153,7 @@
                       var arrowMargin = (innerHeight / 2) - halfArrowHeight;
                       leftArrow.css("top", arrowMargin + "px");
                       rightArrow.css("top", arrowMargin + "px");
+                    
                     }
 
                 });

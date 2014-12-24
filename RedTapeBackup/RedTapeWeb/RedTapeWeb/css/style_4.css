@@ -1,0 +1,208 @@
+.size_chart_ft, .size_chart_ts, .size_chart_s, .size_chart_dn, .size_chart_jn{
+display: block;
+z-index: 1002;
+outline: 0px none;
+padding:10px;
+position: fixed;
+height:auto;
+width: 400px;
+background:#fff;
+display:none;
+}
+.size_chart_ts{
+width:670px;
+}
+.size_chart_s{
+width:825px;
+}
+.size_chart_dn{
+width:645px;
+}
+.size_chart_jn{
+width:735px;
+}
+.size_chart_ft h2, .size_chart_ts h2, .size_chart_s h2, .size_chart_dn h2, .size_chart_jn h2{
+text-align:center;
+text-transform:uppercase;
+font-size:36px;
+color:#fff;
+padding:10px;
+background:#e92629;
+font-family: 'bebas_neueregular';
+letter-spacing:2px;
+}
+.size_chart_ft_nav, .size_chart_ts_nav, .size_chart_s_nav, .size_chart_dn_nav, .size_chart_jn_nav{
+float:left;
+width:100%;
+}
+.size_chart_ft_nav ul, .size_chart_ts_nav ul, .size_chart_s_nav ul, .size_chart_dn_nav ul,.size_chart_jn_nav ul{
+list-style:none;
+}
+.size_chart_ft_nav ul li, .size_chart_ts_nav ul li, .size_chart_s_nav ul li, .size_chart_dn_nav ul li, .size_chart_jn_nav ul li{
+background:#000;
+color:#fff !important;
+border:1px solid #737373 !important;
+}
+.size_chart_ft ul, .size_chart_ts ul, .size_chart_s ul, .size_chart_dn ul, .size_chart_jn ul{
+list-style:none;
+}
+.size_chart_ft ul li, .size_chart_ts ul li, .size_chart_s ul li, .size_chart_dn ul li, .size_chart_jn ul li{
+float:left;
+text-align:center;
+border:1px solid #000;
+width:65px;
+font-size:12px;
+color:#000;
+letter-spacing:0;
+padding:15px 0;
+}
+.size_chart_ts ul li{
+width:95px;
+}
+.size_chart_s ul li, .size_chart_dn ul li, .size_chart_jn ul li{
+width:90px;
+}
+.size_chart_ft ul li:nth-child(1){
+width:120px;
+}
+.size_chart_ts ul li:nth-child(1), .size_chart_s ul li:nth-child(1){
+width:175px;
+}
+.size_chart_jn ul li:nth-child(1),.size_chart_dn ul li:nth-child(1){
+width:175px;
+}
+.hide_size{
+display:block !important;
+}
+
+.fashion_guide_contnt, .mens_rule {
+width:100%;
+margin-bottom:10px;
+}
+.style_guide{
+width:45%;
+float:left;
+height:520px;
+padding-right:5%;
+}
+.style_guide_content{
+width:100%;
+float:left;
+border-top:1px solid #bcbcbc;
+border-bottom:1px solid #bcbcbc;
+padding:20px 0;
+margin-bottom:20px;
+}
+.fashion_guide_contnt h3, .style_guide h3, .style_guide_content h4{
+text-transform: uppercase;
+color: #000;
+padding:15px 0;
+font-weight: normal;
+text-align: left;
+font-size: 20px;
+font-family:'GothamRoundedBold';
+}
+.style_guide_content h4, .style_guide h4{
+font-size:14px;
+margin-top:0;
+float:left;
+padding:15px 0;
+}
+.style_guide h4{
+float:none;
+text-align:left;
+padding:0;
+}
+.style_guide h3{
+text-transform:none;
+}
+.fashion_guide_contnt img, .style_guide img{
+width:100%;
+height:auto;
+}
+.fashion_guide_contnt span{
+width:100%;
+float:left;
+margin-bottom:20px;
+}
+.fashion_guide_contnt p, .style_guide p, .style_guide_content p, .mens_rule p{
+font-size:13px;
+line-height:18px;
+color: #000;
+padding:15px 0;
+font-weight: normal;
+text-align: left;
+font-family:'GothamRoundedBook';
+text-transform:none;
+}
+.mens_rule p{
+line-height:18px;
+}
+.product_nav_btn {
+display:none
+}
+
+.fashion_nav ul{
+list-style:none;
+}
+.fashion_nav ul li{
+float:left;
+}
+.fashion_nav ul li a{
+color:#000;
+}
+.fashion_nav ul li a:hover{
+color:#e92629;
+}
+
+/*--------------------- Style Guide ---------------------*/
+
+
+@media screen and (max-width:680px) {
+
+.product_nav_btn {
+background-repeat: no-repeat;
+top: 102px;
+background-color: #FFF;
+background-image: url('../images/website/RT_slide-in_icon.png');
+border: 1px solid #000;
+background-position: 0px 4px;
+position: fixed;
+display: block;
+z-index: 10;
+width: 40px;
+height: 40px;
+}
+.fashion_guide_contnt img{
+width:720px;
+height:84px;
+}
+.fashion_guide_contnt span, .style_guide span{
+width:100%;
+margin-bottom:20px;
+float:left;
+overflow:hidden;
+}
+.style_guide{
+float:none;
+width:100%;
+height:auto;
+margin-bottom:20px;
+border-bottom:1px solid #999;
+}
+.style_guide img{
+max-width:288px;
+height:auto;
+}
+.style_guide_content{
+border-top:none;
+}
+.style_guide_content h4, .style_guide_content p{
+padding:0;
+float:none;
+}
+.style_guide_content p{
+margin-bottom:15px;
+}
+
+}

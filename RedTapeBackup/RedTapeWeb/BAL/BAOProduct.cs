@@ -25,12 +25,15 @@ namespace BAL
     public class BAOProduct
     {
         public int ProductId { get; set; }
+        public int ParentCategoryId { get; set; }
         public int CategoryId { get; set; } 
         public string Category { get; set; }
         public int SkuID { get; set; }
         public string ProductTitle { get; set; }
         public string Description { get; set; }
-        public string ShortDescription { get; set; } 
+        public string ShortDescription { get; set; }
+        public string ProductImgURL { get; set; }
+        public string ProductImgBigURL { get; set; }
         public string ProductCode { get; set; }     
         public string MSRP { get; set; }
         public int SalePrice { get; set; }
@@ -41,15 +44,14 @@ namespace BAL
         public float TaxAppliedPercentage { get; set; }
         public int Quantity { get; set; }
         public int IsAvailableFor { get; set; }// 1=AVailable,2=sale,3=outofstock
-        public int NewArrival { get; set; }
+        public string IsAvailable { get; set; }
+        public string IsNewArrival { get; set; }
         public int Rating { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public int ModifiedBy { get; set; }
-        public DateTime ModifiedDate { get; set; }
-    
-
-
+        public DateTime ModifiedDate { get; set; }    
+        public string WishListCss { get; set; }
     }
 
     public class BAOCategory
@@ -59,6 +61,7 @@ namespace BAL
         public String Category { get; set; }
         public String SubCategory { get; set; }
         public String Description { get; set; }
+        public String ParentDesc { get; set; }
     }
 
     public class BAOColourCodes
@@ -90,10 +93,11 @@ namespace BAL
         public int percentage { get; set; }
 
     }
-
+    
      public class BAOImageURL
      {
-         public int imageId { get; set; }      
+         public int imageId { get; set; }
+         public int imageTypeId { get; set; }
          public string imageURL { get; set; }
 
      }

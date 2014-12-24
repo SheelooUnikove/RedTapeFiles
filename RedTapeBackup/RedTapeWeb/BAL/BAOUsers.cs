@@ -27,6 +27,16 @@ namespace BAL
         // public bool active { get; set; }
         public string userType { get; set; }
         public bool IsSubscribe { get; set; } // 0-no,1-yes
+        public int rewardPoints { get; set; }
+        /// <summary>
+        /// payemnt Properties
+        /// </summary>
+        public string TrackingId { get; set; }
+        public string Status { get; set; }
+        public string PaymentType { get; set; }
+        public string BankInfo { get; set; }
+        public string Currency { get; set; }
+
         /// <summary>
         /// Common Properties
         /// </summary>
@@ -50,7 +60,8 @@ namespace BAL
         /// Properties of UserShippingDetails
         /// </summary>
         public int shipAddressId { get; set; }
-
+        //public string orderID { get; set; }
+        public string @S_OR_B { get; set; }
         /// <summary>
         /// Properties of UserProductsView
         /// </summary>
@@ -71,33 +82,38 @@ namespace BAL
         /// <summary>
         ///  Properties of ShoppingCart
         /// </summary>
+        public string OrderIdSTR { get; set; }     
+        public int OrderId { get; set; }     
+        public string ONET_AMT { get; set; }
+        public string OTAX_AMT { get; set; }
+        public string ODISCOUNT_AMT { get; set; }
+        public int OSHIP_DETAILS_ID { get; set; }
+        public int RewardPoints { get; set; }
+        public int OPOINT_REDEEM { get; set; }
+        public int OPOINT_VALUE { get; set; }
+        //public string OPOINT_REDEEM_AMT { get; set; }
+        public string OSHIP_AMT { get; set; }
+        public string OCURRENCY_CODE { get; set; }
+        public string OEXCHANGE_RATE { get; set; }
+        public string Checksum { get; set; }
+        //public string CheckSumPayment { get; set; }
+        public string AuthDesc { get; set; }
+        //public string newChecksum { get; set; }
+        public DateTime DATETIME { get; set; }
+        public string IP { get; set; }
+        public int ISDELETED { get; set; }
+        public int SHP_FLAG { get; set; }
 
-        public string parm { get; set; }
-        public int SelectProductID { get; set; }
-        public int SHP_PROD_ID { get; set; }
-        public int SHP_PROD_CAT_ID { get; set; }
-        public int SHP_PROD_SUB_CAT_ID { get; set; }
-        //public string PROD_TABALE_NAME { get; set; }
-        public string SHP_PROD_CODE { get; set; }
-        public string SHP_PROD_NAME { get; set; }
-        public float SHP_PROD_DISC_PRICE { get; set; }
-        public string SHP_PROD_ACTULE_PRICE { get; set; }
-        public string SHP_PROD_TAX { get; set; }
-        public int SHP_PROD_PERCENT { get; set; }
-        public int SHP_PROD_QTY { get; set; }
-        public string SHP_PROD_SIZE { get; set; }
-        public string SHP_PROD_IMG { get; set; }
-        public string SHP_PROD_DESC { get; set; }
-        public string PROD_DETAIL_URL { get; set; }
-        public string SHP_FLAG { get; set; }
-        public string UserIP { get; set; }
+
+
+
 
         
-        public static string userName { get; set; }
-        public static string currentemail { get; set; }
-        public static int WishListCount { get; set; }
-        public static int CartCount { get; set; }
-        public static string  currentUserType { get; set; }
-        public static string CurrentSeesionId { get; set; }
+        public  string userName { get; set; }
+        public  string currentemail { get; set; }
+        public  int WishListCount { get; set; }
+        public  int CartCount { get; set; }
+        public  string  currentUserType { get; set; }
+        public  string CurrentSeesionId { get; set; }
     }
 }

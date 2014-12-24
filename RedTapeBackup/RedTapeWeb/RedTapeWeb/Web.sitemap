@@ -1,16 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="Default.aspx" title="Home"  description="Home">
-    <siteMapNode url="login_signup.aspx" title="Login"  description="Login" />
-    <siteMapNode url="account_detail.aspx" title="AccountDetail"  description="AccountDetail" />
-    <siteMapNode url="change_password.aspx" title="ChangePassword"  description="ChangePassword" />
-    <siteMapNode url="order_confirmation.aspx" title="OrderConfirmation"  description="OrderConfirmation" />
-    <siteMapNode url="productdetails.aspx" title="ProductDetails"  description="ProductDetails" />
+    <siteMapNode url="collections.aspx" title="Collections"  description="Collections" />
+    <siteMapNode url="new_arrivals.aspx" title="New Arrivals"  description="New Arrivals" />
+    <siteMapNode url="lookbook.aspx" title="LookBook"  description="LookBook"></siteMapNode>
+    <siteMapNode url="campaign.aspx" title="New Campaign"  description="New Campaign"></siteMapNode>
+    <siteMapNode url="printads.aspx" title="Print Advertising"  description="Print Advertising"></siteMapNode>
+    <siteMapNode url="tvc.aspx" title="Television Commercials"  description="Television Commercials"></siteMapNode>
+    <siteMapNode url="storegallery.aspx" title="Store Gallery"  description="Store Gallery"></siteMapNode>
+    <siteMapNode url="mustownlist.aspx" title="The Must-Own List"  description="The Must-Own List"></siteMapNode>
+    <siteMapNode url="shoerules.aspx" title="Mens Shoe Rules"  description="Mens Shoe Rules"></siteMapNode>
+    <siteMapNode url="styleguide.aspx" title="Style Guide"  description="Style Guide"></siteMapNode>
+    <siteMapNode url="storelocator.aspx" title="Locate Stores"  description="Locate Stores"></siteMapNode>
+    <siteMapNode url="comingsoon.aspx" title="Coming Soon"  description="Coming Soon"></siteMapNode>
+    <siteMapNode url="about.aspx" title="About Us"  description="About Us"></siteMapNode>
+    <siteMapNode url="contact.aspx" title="Contact Us"  description="Contact Us"></siteMapNode>
+    <siteMapNode url="customercare.aspx" title="Customer Care"  description="Customer Care"></siteMapNode>
+    <siteMapNode url="careers.aspx" title="Careers"  description="Careers"></siteMapNode>
+    <siteMapNode url="privacypolicy.aspx" title="Privacy Policy"  description="Privacy Policy"></siteMapNode>
+    <siteMapNode url="termsandconditions.aspx" title="Terms and Conditions"  description="Terms and Conditions"></siteMapNode>
+    <siteMapNode url="shippingpolicy.aspx" title="Shipping Policy"  description="Shipping Policy"></siteMapNode>
+    <siteMapNode url="returnandreplacement.aspx" title="Return and Replacement"  description="Return and Replacement"></siteMapNode>
+    <siteMapNode url="sitemap.aspx" title="Site Map"  description="Site Map"></siteMapNode>
+
+    <siteMapNode url="productdetails.aspx" title="Product Details"  description="ProductDetails" />
     <siteMapNode url="ProductsList.aspx" title="Collections"  description="Collections" />
-    <siteMapNode url="purchase_history.aspx" title="PurchaseHistory"  description="PurchaseHistory" />
-    <siteMapNode url="rewardpoints.aspx" title="RewardPoints"  description="RewardPoints" />
-    <siteMapNode url="shopping_cart.aspx" title="ShoppingCart"  description="ShoppingCart" />
-    <siteMapNode url="update_address.aspx" title="UpdateAddress"  description="UpdateAddress" />
+    
+    <siteMapNode url="login_signup.aspx" title="Login"  description="Login" />
+    <siteMapNode url="account_detail.aspx" title="Account Details"  description="AccountDetail" />
+    <siteMapNode url="change_password.aspx" title="Change Password"  description="ChangePassword" />
+    <siteMapNode url="order_confirmation.aspx" title="Order Confirmation"  description="OrderConfirmation" />
+    <siteMapNode url="update_address.aspx" title="Update Address"  description="UpdateAddress" />    
+    <siteMapNode url="purchase_history.aspx" title="Purchase History"  description="PurchaseHistory" />
+    <siteMapNode url="rewardpoints.aspx" title="Reward Points"  description="RewardPoints" />
+    
+    <siteMapNode url="shopping_cart.aspx" title="Shopping Cart"  description="ShoppingCart" />
+    
     <siteMapNode url="wishlist.aspx" title="WishList"  description="WishList" />
+    <siteMapNode url="forgotpassword.aspx" title="Forgot Password"  description="forgotpassword" />
+   <siteMapNode url="processPayment.aspx" title="Process Payment"  description="ProcessPayment" /> 
+  <siteMapNode url="order_unsuccessfull.aspx" title="Order Unsuccessfull"  description="OrderUnsuccessfull" />
+  <siteMapNode url="paymentCom.aspx" title="Payment Confirmation"  description="PaymentConfirmation" />
+     
+
   </siteMapNode>
 </siteMap>

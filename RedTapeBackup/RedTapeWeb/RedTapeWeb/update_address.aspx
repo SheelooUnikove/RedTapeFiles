@@ -5,12 +5,12 @@
 		
 		<div class="whslst_lft_nav">
 			<ul>
-				<a href="account_detail.aspx"><li>ACCOUNT DETAILS</li></a>
-				<a href="change_password.aspx"><li>CHANGE PASSWORD</li></a>
-				<a href="update_address.aspx"><li>UPDATE ADDRESSES</li></a>
-				<a href="purchase_history.aspx"><li>PURCHASE HISTORY</li></a>
-				<a href="wishlist.aspx"><li>wish list</li></a>
-				<a href="rewardpoints.aspx"><li>reward points</li></a>
+				<li><a href="account_detail.aspx">ACCOUNT DETAILS</a></li>
+				<li><a href="change_password.aspx">CHANGE PASSWORD</a></li>
+				<li><a href="update_address.aspx">UPDATE ADDRESSES</a></li>
+				<li><a href="purchase_history.aspx">PURCHASE HISTORY</a></li>
+				<li><a href="wishlist.aspx">wish list</a></li>
+				<li><a href="reward_points.aspx">REWARD POINTS</a></li>
 			</ul>
 		</div>		
 </div>
@@ -23,8 +23,8 @@
                           <input runat="server" id="lbl_BlngAddId" visible="false" />
                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">first name</div><input runat="server" id="txt_BlngFirstName" type="text"  class="acnt_form_select" maxlength="20"/></div>
                          <div class="up_fill_bx_lft"><div class="updat_dtl_txt">last name</div><input runat="server" id="txt_BlngLastName" type="text"  class="acnt_form_select" maxlength="20"/></div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">contact no</div><input runat="server" id="txt_BlngContactNo" type="text"  class="acnt_form_select" maxlength="20"/></div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_BlngEmail" type="text"  class="acnt_form_select" maxlength="20"/></div>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">contact no</div><input runat="server" id="txt_BlngContactNo" type="text"  class="acnt_form_select" maxlength="20" onkeypress="return numbersonly(event)"/></div>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_BlngEmail" type="text"  class="acnt_form_select" maxlength="50"/></div>
 						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">street 1</div><input runat="server" id="txt_BlngStreet1" type="text"  class="acnt_form_select" maxlength="50"/></div>
 						<div class="up_fill_bx_rght"><div class="updat_dtl_txt">street 2</div><input runat="server" id="txt_BlngStreet2" class="acnt_form_select" type="text" maxlength="50"/></div>
 					</div>
@@ -41,7 +41,7 @@
 					</div>
 
 					<div class="updat_dtl_row">
-						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div><input runat="server" id="txt_BlngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10"/></div>
+						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div><input runat="server" id="txt_BlngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10" onkeypress="return numbersonly(event)"/></div>
 					
 					
 						<div class="up_fill_bx_rght"><div class="updat_dtl_txt">country</div>
@@ -63,8 +63,8 @@
                         <input runat="server" id="lbl_ShngAddId" visible="false" />
                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">first name</div><input runat="server" id="txt_ShngFirstName" type="text"  class="acnt_form_select" maxlength="20"/></div>
                          <div class="up_fill_bx_lft"><div class="updat_dtl_txt">last name</div><input runat="server" id="txt_ShngLastName" type="text"  class="acnt_form_select" maxlength="20"/></div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">contact no</div><input runat="server" id="txt_ShngContactNo" type="text"  class="acnt_form_select" maxlength="20"/></div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_ShngEmail" type="text"  class="acnt_form_select" maxlength="20"/></div>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">contact no</div><input runat="server" id="txt_ShngContactNo" type="text"  class="acnt_form_select" maxlength="20" onkeypress="return numbersonly(event)"/></div>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_ShngEmail" type="text"  class="acnt_form_select" maxlength="50"/></div>
 						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">street 1</div><input runat="server" id="txt_ShngStreet1" class="acnt_form_select" type="text" border="none" maxlength="50"/></div>
 						<div class="up_fill_bx_rght"><div class="updat_dtl_txt">street 2</div><input runat="server" id="txt_ShngStreet2" class="acnt_form_select" type="text" maxlength="50"/></div>
 					</div>
@@ -79,7 +79,7 @@
 					</div>
 
 					<div class="updat_dtl_row">
-						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div><input runat="server" id="txt_ShngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10"/></div>
+						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div><input runat="server" id="txt_ShngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10" onkeypress="return numbersonly(event)"/></div>
 						<div class="up_fill_bx_rght"><div class="updat_dtl_txt">country</div>
 							 <asp:DropDownList ID="drp_ShngCountries" runat="server" class="acnt_form_select" ></asp:DropDownList>
 						</div>
@@ -92,4 +92,6 @@
 	</div>
 
 </div>  
+      <div id="info2" style="display:none;"><div class="popup_left popup_light"></div><div class="popup_right"><p id="dispmsg" runat="server">
+</p><div class="popup_btn" onclick="closepopup();">OK</div></div> </div>
 </asp:Content>

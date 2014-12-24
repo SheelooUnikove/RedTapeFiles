@@ -28,17 +28,24 @@ namespace RedTapeWeb
         protected void btn_SaveChanges_Click(object sender, EventArgs e)
         {
             try
-            {               
-                objBAOUsers.emailAddress = BAOUsers.currentemail;
+            {
+               
                 objBAOUsers.Membership_No = Session["MembershipNo"].ToString();
+                DataTable dtUserPersonalDetails = objDAOUsers.GetUserDetails(objBAOUsers).Tables[0];
+
+                objBAOUsers.currentemail = dtUserPersonalDetails.Rows[0]["emailAddress"].ToString();
+                objBAOUsers.emailAddress = objBAOUsers.currentemail;
                 objBAOUsers.newpassword = txt_NewPassword.Value;
                 string getmsg = objDAOUsers.UpdateUserPassword(objBAOUsers);
-                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(" + getmsg + ");", true);
-
+               // msg.InnerHtml = getmsg;
+                dispmsg.InnerText = "Updated Successfully";
+                ScriptManager.RegisterStartupScript(this, typeof(System.Web.UI.Page), UniqueID, "openpop();", true);
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "", "alert(" + ex.Message + ");", true);
+                 //msg.InnerHtml = ex.Message ;
+                  dispmsg.InnerText = ex.Message;
+                 ScriptManager.RegisterStartupScript(this, typeof(System.Web.UI.Page), UniqueID, "openpop();", true);
             }
 
         }

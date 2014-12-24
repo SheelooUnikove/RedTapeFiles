@@ -220,13 +220,13 @@ namespace RedTapeWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_UserStreet2;
         
         /// <summary>
-        /// drp_BlngCities control.
+        /// txt_BlngCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drp_BlngCities;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_BlngCity;
         
         /// <summary>
         /// rvl_UserBlngCity control.
@@ -409,13 +409,13 @@ namespace RedTapeWeb {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rvl_UserShStreet2;
         
         /// <summary>
-        /// drp_ShngCities control.
+        /// txt_ShngCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drp_ShngCities;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_ShngCity;
         
         /// <summary>
         /// rvl_UserShngCity control.
@@ -479,5 +479,14 @@ namespace RedTapeWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnk_EditProfile_bottom;
+        
+        /// <summary>
+        /// dispmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dispmsg;
     }
 }

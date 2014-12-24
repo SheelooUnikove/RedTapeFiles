@@ -3,10 +3,9 @@
 
 <div class="container">
 	<div class="odr_cfm_hdr">	
-		<div class="odr_cfm_txt">
-			Dear John Doe,<br />
-			We’re pleased to inform you that your <b>Order No.</b>: 20298 was successfully dispatched.<br /><br />
-			Your ORDER SUMMARY is provided below :<br />   
+		<div class="odr_cfm_txt" style="margin-top:15px;">
+			
+			Your ORDER SUMMARY is provided below. Please click Proceed to checkout if you wish to purchase or else click cancel to continue shopping
 		</div>
 	</div>
 	<div class="ordr_cnfrm">
@@ -24,20 +23,27 @@
                <ItemTemplate>
 			<li class="ordr_cnfrm_hdng" id='<%#Eval("viewId") %>'>
 				<ul>
-					<li><img src="images/website/shopping_cart/img1.png" /></li>
-					<li><%#Eval("productName") %></li>
+					<li onclick="openproductpage(<%#Eval("productId") %>);"><img src="<%#Eval("imgUrl")+"?"+DateTime.Now.ToString("ddMMyyyy") %>" /></li>
+					<li onclick="openproductpage(<%#Eval("productId") %>);"><%#Eval("ProductCode") %></li>
 					<li><%#Eval("qty") %></li>
-					<li><%#Eval("salePrice") %></li>
-					<li><%#Eval("subTotal") %></li>
+					<li><span>&#x20B9; </span><%#Eval("salePrice") %></li>
+					<li><span>&#x20B9; </span><%#Eval("subTotal") %></li>
 				</ul>
 			</li>
                </ItemTemplate>
             </asp:Repeater>
 		</ul>
-	</div>	
+	</div>
+
+   
+    <div class="ordr_foter" id="idRedeemPointHide" runat="server">
+			<div class="ordr_net">Redeem Points</div>
+			<div class="ordr_total"><span>&#x20B9; </span><span   runat="server" id="idRedeemPoints">-<%--<%=Session["redeemPoints"] %>--%></span></div>
+	</div>
+ 	
 	<div class="ordr_foter">
 			<div class="ordr_net">total amount</div>
-			<div class="ordr_total"  runat="server" id="lbl_totalAmount"></div>
+			<div class="ordr_total"><span>&#x20B9; </span><span   runat="server" id="lbl_totalAmount"></span></div>
 	</div>
 	
 	<div class="order_now_info">
@@ -64,7 +70,7 @@
                           <asp:RequiredFieldValidator ID="rvl_UserBlFirstName" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_BlngFirstName" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
                         </div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">last name</div><input runat="server" id="txt_BlngLastName" type="text"  class="acnt_form_select" maxlength="20"/>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">last name</div><input runat="server" id="txt_BlngLastName" type="text"  class="acnt_form_select" maxlength="30"/>
                             <asp:RequiredFieldValidator ID="rvl_UserBlLastName" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_BlngLastName" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
                          </div>
@@ -72,7 +78,7 @@
                             <asp:RequiredFieldValidator ID="rvl_UserContact" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_BlngContactNo" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
                          </div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_BlngEmail" type="text"  class="acnt_form_select" maxlength="20"/>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_BlngEmail" type="text"  class="acnt_form_select" maxlength="50"/>
                              <asp:RequiredFieldValidator ID="rvl_UserEmail" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_BlngEmail" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
                                 <br />
                              <asp:RegularExpressionValidator ID="rev_LoginUserEmailAddress" runat="server" ErrorMessage="Email Address Invalid" ControlToValidate="txt_BlngEmail" SetFocusOnError="true" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ValidationGroup="chkaddress"></asp:RegularExpressionValidator>
@@ -90,9 +96,8 @@
 					
 					<div class="updat_dtl_row">
 						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">city</div>				
-                              <asp:DropDownList ID="drp_BlngCities" runat="server" class="acnt_form_select" ></asp:DropDownList>
-                           <asp:RequiredFieldValidator ID="rvl_UserBlngCity" runat="server" ErrorMessage="Select City" ControlToValidate="drp_BlngCities" InitialValue="0" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
-
+                         <input runat="server" id="txt_BlngCity" class="acnt_form_select" type="text" border="none" maxlength="50"/>
+                            <asp:RequiredFieldValidator ID="rvl_UserBlngCity" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_BlngCity" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 						</div>
 					
 						
@@ -104,7 +109,8 @@
 					</div>
 
 					<div class="updat_dtl_row">
-						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div><input runat="server" id="txt_BlngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10"/>
+						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div>
+                            <input runat="server" id="txt_BlngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10"/>
                              <asp:RequiredFieldValidator ID="rvl_UserBlngpincode" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_BlngPinCode" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
 						</div>
@@ -127,11 +133,11 @@
 				<div class="updt_detl_form">
 					<div class="updat_dtl_row">
                         <input runat="server" id="lbl_ShngAddId" visible="false" />
-                        <div class="up_fill_bx_lft"><div class="updat_dtl_txt">first name</div><input runat="server" id="txt_ShngFirstName" type="text"  class="acnt_form_select" maxlength="20"/>
+                        <div class="up_fill_bx_lft"><div class="updat_dtl_txt">first name</div><input runat="server" id="txt_ShngFirstName" type="text"  class="acnt_form_select" maxlength="30"/>
                        <asp:RequiredFieldValidator ID="rvl_UserShFirstName" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_ShngFirstName" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
                         </div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">last name</div><input runat="server" id="txt_ShngLastName" type="text"  class="acnt_form_select" maxlength="20"/>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">last name</div><input runat="server" id="txt_ShngLastName" type="text"  class="acnt_form_select" maxlength="30"/>
                          <asp:RequiredFieldValidator ID="rvl_UserShLastName" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_ShngLastName" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
                          </div>
@@ -139,7 +145,7 @@
                            <asp:RequiredFieldValidator ID="rvl_UserShContact" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_ShngContactNo" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
                          </div>
-                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_ShngEmail" type="text"  class="acnt_form_select" maxlength="20"/>
+                         <div class="up_fill_bx_lft"><div class="updat_dtl_txt">email address</div><input runat="server" id="txt_ShngEmail" type="text"  class="acnt_form_select" maxlength="50"/>
                            <asp:RequiredFieldValidator ID="rvl_UserEmail2" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_ShngEmail" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
                                    <br />
                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email Address Invalid" ControlToValidate="txt_BlngEmail" SetFocusOnError="true" ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" ValidationGroup="chkaddress"></asp:RegularExpressionValidator>
@@ -157,9 +163,8 @@
 					
 					<div class="updat_dtl_row">
 						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">city</div>
-							 <asp:DropDownList ID="drp_ShngCities" runat="server" class="acnt_form_select" ></asp:DropDownList>
-                             <asp:RequiredFieldValidator ID="rvl_UserShngCity" runat="server" ErrorMessage="Select State" ControlToValidate="drp_ShngCities" InitialValue="0" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
-
+							 <input runat="server" id="txt_ShngCity" class="acnt_form_select" type="text" border="none" maxlength="50"/>
+                             <asp:RequiredFieldValidator ID="rvl_UserShngCity" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_ShngCity" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 						</div>
 						<div class="up_fill_bx_rght"><div class="updat_dtl_txt">state</div>
 							 <asp:DropDownList ID="drp_ShngStates" runat="server" class="acnt_form_select" ></asp:DropDownList>
@@ -169,21 +174,28 @@
 					</div>
 
 					<div class="updat_dtl_row">
-						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div><input runat="server" id="txt_ShngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10"/>
+						<div class="up_fill_bx_lft"><div class="updat_dtl_txt">pincode</div>
+                            <input runat="server" id="txt_ShngPinCode" class="acnt_form_select" type="text" border="none" maxlength="10"/>
                         <asp:RequiredFieldValidator ID="rvl_UserShngpincode" runat="server" ErrorMessage="This field is Required" ControlToValidate="txt_ShngPinCode" SetFocusOnError="true" ValidationGroup="chkaddress"></asp:RequiredFieldValidator>
 
 						</div>
 						<div class="up_fill_bx_rght"><div class="updat_dtl_txt">country</div>
 							 <asp:DropDownList ID="drp_ShngCountries" runat="server" class="acnt_form_select" ></asp:DropDownList>
-						</div>
+                    	</div>
 					</div>
 
 				</div>
 			</div>
 	     <asp:HiddenField runat="server" ID="encRequest" />
-		<div class="sv_chng_btn">
-            <asp:Button runat="server" Text="proceed to checkout" OnClick="Btncheckout_Click" ValidationGroup="chkaddress" />
-            </div>			
+
+        <div class="cart_hpl_fotr">
+			
+			<div class="cart_plc_order">  <asp:LinkButton ID="Btncheckout" runat="server" Text="proceed to checkout" OnClick="Btncheckout_Click" ValidationGroup="chkaddress" /></div>
+			<div class="cart_plc_order" onclick="window.open('Default.aspx','_self',false)">continue shopping</div>
+		</div>	
+
+		
 	</div>
-	</div>
+  
+    </div>
 </asp:Content>

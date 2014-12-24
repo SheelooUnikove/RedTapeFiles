@@ -215,13 +215,15 @@
    * Bind to links, on click they open a facybox which
    * contains what their href points to
    */
-  $.fn.facybox = function(settings) {
+  $.fn.facybox = function (settings) {
+      
     var $this = $(this);
     if(!$this[0]) return $this;//called on empty elements, just stop and continue chain
     if(settings)$.extend($.facybox.settings, settings);
     if(!$.facybox.settings.noAutoload) init();
 
-    $this.bind('click.facybox',function(){
+    $this.bind('click.facybox', function () {
+        
       $.facybox.loading();
       // support for rel="facybox.inline_popup" syntax, to add a class
       // also supports deprecated "facybox[.inline_popup]" syntax

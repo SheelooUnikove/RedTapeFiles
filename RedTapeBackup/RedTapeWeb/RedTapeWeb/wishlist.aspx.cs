@@ -24,8 +24,14 @@ namespace RedTapeWeb
                 DataTable dtGetUserStatusList = objDAOUsers.GetUserStatusList(objBAOUsers);
                 if (dtGetUserStatusList.Rows.Count > 0)
                 {
+                    objBAOUsers.WishListCount = dtGetUserStatusList.Rows.Count;
                     rpt_WishList.DataSource = dtGetUserStatusList;
                     rpt_WishList.DataBind();
+                }
+                else
+                {
+                    msg.InnerHtml = "There are no wishlist items.";
+                    divWishList.Visible = false;
                 }
             }
             else

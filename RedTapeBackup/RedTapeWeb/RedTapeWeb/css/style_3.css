@@ -1,0 +1,39 @@
+.static_page_content{
+	float:left;
+}
+.static_page_content_sb-hdng{
+	font-size:20px;
+	font-weight:bold;
+}
+.static_page_content p{
+	font-size:14px;
+	line-height:20px;
+	padding:0 0 10px 0;
+}
+
+
+@media screen and (max-width:960px) {
+.static_page_content_sb-hdng{
+		font-size:18px;
+}
+ 
+}
+
+
+@media screen and (max-width:600px) {
+.static_page_content_sb-hdng{
+	font-size:16px;
+}
+
+}
+
+
+
+.static_page{
+margin-bottom:5%;
+}
+
+.static_page_hdng{
+font-family: 'bebas_neueregular';
+letter-spacing:1px;
+}

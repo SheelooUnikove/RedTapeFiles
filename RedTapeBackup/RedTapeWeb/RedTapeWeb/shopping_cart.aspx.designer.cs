@@ -13,6 +13,33 @@ namespace RedTapeWeb {
     public partial class shopping_cart {
         
         /// <summary>
+        /// hdnTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnTotal;
+        
+        /// <summary>
+        /// msg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msg;
+        
+        /// <summary>
+        /// cartdiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartdiv;
+        
+        /// <summary>
         /// rpt_AddtocartList control.
         /// </summary>
         /// <remarks>
@@ -22,6 +49,15 @@ namespace RedTapeWeb {
         protected global::System.Web.UI.WebControls.Repeater rpt_AddtocartList;
         
         /// <summary>
+        /// ulRewardPoints control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulRewardPoints;
+        
+        /// <summary>
         /// lbl_totalAmount control.
         /// </summary>
         /// <remarks>
@@ -29,5 +65,14 @@ namespace RedTapeWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbl_totalAmount;
+        
+        /// <summary>
+        /// cart_plc_order control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart_plc_order;
     }
 }

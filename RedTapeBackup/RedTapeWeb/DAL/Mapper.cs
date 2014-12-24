@@ -35,6 +35,7 @@ namespace BAL
             {
                 BAOProduct productItem = new BAOProduct();
                 productItem.ProductId = ClsGeneral.getInt32(dr["productId"].ToString());
+                productItem.ParentCategoryId = ClsGeneral.getInt32(dr["parentId"].ToString());
                 productItem.CategoryId = ClsGeneral.getInt32(dr["categoryId"].ToString());
                 productItem.Category = dr["Category"].ToString();
                 productItem.SkuID = ClsGeneral.getInt32(dr["skuID"].ToString());
@@ -50,10 +51,9 @@ namespace BAL
                 productItem.GroupId = ClsGeneral.getInt32(dr["GroupId"].ToString());
                 productItem.TaxAppliedPercentage = float.Parse(dr["categoryId"].ToString());
                 productItem.Quantity = ClsGeneral.getInt32(dr["quantity"].ToString());
-                productItem.IsAvailableFor = ClsGeneral.getInt32(dr["availableFor"].ToString());
-                productItem.NewArrival = ClsGeneral.getInt32(dr["newArrival"].ToString());
+                productItem.IsAvailable = dr["IsAvailable"].ToString();
+                productItem.IsNewArrival = dr["IsNewArrival"].ToString();
                 productItem.Rating = ClsGeneral.getInt32(dr["rating"].ToString());
-
 
                 Productlst.Add(productItem);
             }
@@ -74,6 +74,7 @@ namespace BAL
             {
                 BAOImageURL BAOImagesItem = new BAOImageURL();
                 BAOImagesItem.imageId = ClsGeneral.getInt32(dr["imgId"].ToString());
+                BAOImagesItem.imageTypeId = ClsGeneral.getInt32(dr["ImageTypeId"].ToString());
                 BAOImagesItem.imageURL = dr["ImgUrl"].ToString();
                 BAOImglst.Add(BAOImagesItem);
 
@@ -103,7 +104,7 @@ namespace BAL
                 CatItem.Category = dr["category"].ToString();
                 CatItem.SubCategory = dr["subCategory"].ToString();
                 CatItem.Description = dr["description"].ToString();
-
+                CatItem.ParentDesc = dr["ParentDesc"].ToString();
                 Categorieslst.Add(CatItem);
             }
 
@@ -145,8 +146,8 @@ namespace BAL
             foreach (DataRow dr in ds.Tables[3].Rows)
             {
                 BAOMinMaxSliderVals BAOSliderItem = new BAOMinMaxSliderVals();
-                BAOSliderItem.MinVal = Convert.ToInt32(dr["minvalue"]);
-                BAOSliderItem.MaxVal = Convert.ToInt32(dr["maxvalue"]);
+                BAOSliderItem.MinVal = ClsGeneral.getInt32(dr["minvalue"].ToString());
+                BAOSliderItem.MaxVal = ClsGeneral.getInt32(dr["maxvalue"].ToString());
 
                 MinMaxlst.Add(BAOSliderItem);
 
@@ -187,7 +188,8 @@ namespace BAL
                 productItem.ProductTitle =dr["ProductTitle"].ToString();
                 productItem.Description = dr["description"].ToString();
                 productItem.ShortDescription = dr["Shortdescription"].ToString();
-               // productItem.MetarialTypeId = ClsGeneral.getInt32(dr["metarialTypeId"].ToString());
+                productItem.ProductImgURL = dr["imgUrl"].ToString();
+                productItem.ProductImgBigURL = dr["imgBigUrl"].ToString();
                 productItem.MSRP =dr["mSRP"].ToString();
                 productItem.SalePrice = ClsGeneral.getInt32(dr["salePrice"].ToString()); 
                 productItem.ColourCode =  dr["colourCode"].ToString();
@@ -196,10 +198,12 @@ namespace BAL
                 productItem.GroupId = ClsGeneral.getInt32(dr["GroupId"].ToString());
                 productItem.TaxAppliedPercentage = float.Parse(dr["categoryId"].ToString());
                 productItem.Quantity = ClsGeneral.getInt32(dr["quantity"].ToString());
-                productItem.IsAvailableFor = ClsGeneral.getInt32(dr["availableFor"].ToString());
-                productItem.NewArrival =ClsGeneral.getInt32(dr["newArrival"].ToString());
+              //  productItem.IsAvailableFor = ClsGeneral.getInt32(dr["availableFor"].ToString());
+                productItem.IsAvailable = dr["IsAvailable"].ToString();
+                productItem.IsNewArrival = dr["IsNewArrival"].ToString();
                 productItem.Rating = ClsGeneral.getInt32(dr["rating"].ToString());
-                
+                productItem.WishListCss = dr["WishListCss"].ToString();
+
                 
                 productList.Add(productItem);
             }

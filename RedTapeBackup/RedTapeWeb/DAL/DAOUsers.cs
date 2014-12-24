@@ -9,6 +9,7 @@ namespace DAL
 {
     public class DAOUsers
     {
+        BAOUsers objBAOUsers = new BAOUsers();
         /// <summary>
         /// SaveUsers
         /// </summary>
@@ -48,9 +49,29 @@ namespace DAL
         {           
             return MsAppDataUtility.ExecuteDataset("sp_GetValidLoginUserDetails", objUsers.emailAddress);
         }
+        /// <summary>
+        /// GetWishCount
+        /// </summary>
+        /// <param name="objUsers"></param>
+        /// <returns></returns>
+        public string GetWishCount(BAOUsers objUsers)
+        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetWishCount", objUsers.Membership_No).Rows[0][0].ToString();
+        } 
+        
+        /// <summary>
+        /// Get user's reward points
+        /// </summary>
+        /// <param name="objUsers"></param>
+        /// <returns></returns>
+        public string userRewardPoints(BAOUsers objUsers)
+        {
+            return MsAppDataUtility.ExecuteDataTable("sp_GetRewardsCount", objUsers.Membership_No).Rows[0][0].ToString();
+        }
+
         public DataSet FBLogin(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataset("sp_FBLogin", objUsers.userfbId,objUsers.firstName,objUsers.lastName,objUsers.emailAddress,objUsers.gender);
+            return MsAppDataUtility.ExecuteDataset("sp_FBLogin", objUsers.userfbId,objUsers.firstName,objUsers.lastName,objUsers.emailAddress,objUsers.gender,objUsers.dob);
         }
         /// <summary>
         /// GetUserDetails
@@ -98,13 +119,16 @@ namespace DAL
             return MsAppDataUtility.ExecuteDataTable("sp_CheckUserEmailAddress", objUsers.emailAddress);
         }
         /// <summary>
-        /// ResetUserPassword
+        /// ForgotUserPassword
         /// </summary>
         /// <param name="objUsers"></param>
         /// <returns>Massage(Satring)</returns>
-        public string ResetUserPassword(BAOUsers objUsers)
+        public string ForgotUserPassword(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataTable("sp_ResetUserPassword", objUsers.Membership_No, objUsers.newpassword).Rows[0][0].ToString();
+            string salt = iStrat.RandomString(20);
+            objUsers.salt = salt;
+            objUsers.newpassword = encPwd(objUsers.newpassword, salt);
+            return MsAppDataUtility.ExecuteDataTable("sp_ResetUserPassword", objUsers.emailAddress, objUsers.newpassword, objUsers.salt).Rows[0][0].ToString();
         }
         /// <summary>
         /// SaveSubscribeUserDetail
@@ -122,7 +146,8 @@ namespace DAL
         /// <returns>ListData</returns>
         public DataTable GetUserStatusList(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataTable("sp_GetUserStatusList", objUsers.Membership_No, objUsers.viewType,BAOUsers.CurrentSeesionId);
+            objUsers.CurrentSeesionId = System.Web.HttpContext.Current.Session["CurrentSessionId"].ToString();
+            return MsAppDataUtility.ExecuteDataTable("sp_GetUserStatusList", objUsers.Membership_No, objUsers.viewType, objUsers.CurrentSeesionId);
         }
         /// <summary>
         /// SaveUserViewProducts  0-delete,1-recentview,2-addtocart,3-wishlist
@@ -131,7 +156,8 @@ namespace DAL
         /// <returns>ListData</returns>
         public DataTable SaveUserViewProducts(BAOUsers objUsers)
         {
-            return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId,objUsers.attrId, objUsers.Membership_No, objUsers.viewType,objUsers.qty,BAOUsers.CurrentSeesionId);
+            objUsers.CurrentSeesionId = System.Web.HttpContext.Current.Session["CurrentSessionId"].ToString();
+            return MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", objUsers.productId, objUsers.attrId, objUsers.Membership_No, objUsers.viewType, objUsers.qty, objUsers.CurrentSeesionId);
         }
         /// <summary>
         /// GetCountryList
@@ -150,7 +176,7 @@ namespace DAL
             return MsAppDataUtility.ExecuteDataTable("sp_GetStates",objUsers.country);
         }
         /// <summary>
-        /// GetCities
+        /// GetCities4
         /// </summary>
         /// <returns>ListData</returns>
         public DataTable GetCities(BAOUsers objUsers)
@@ -162,9 +188,20 @@ namespace DAL
         /// </summary>
         /// <param name="objUsers"></param>
         /// <returns></returns>
-        public int SaveUserViewProducts(int productid,int attrId, string  MembershipId, int viewType, int qty)
+        public int SaveUserViewProducts(int productid, int attrId, string MembershipId, int viewType, int qty, string CurrentSeesionId)
         {
-            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", productid, attrId, MembershipId, viewType, qty, BAOUsers.CurrentSeesionId).Rows[0][0]);
+           // string  CurrentSeesionId = System.Web.HttpContext.Current.Session["CurrentSessionId"].ToString();
+            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveUserViewProducts", productid, attrId, MembershipId, viewType, qty, CurrentSeesionId).Rows[0][0]);
+        }
+        /// <summary>
+        /// SaveLookBook
+        /// </summary>
+        /// <param name="objUsers"></param>
+        /// <returns></returns>
+        public int SaveLookBook(string productids, string attrIds, string MembershipId, int viewType, int qty, string CurrentSeesionId)
+        {
+           // string  CurrentSeesionId = System.Web.HttpContext.Current.Session["CurrentSessionId"].ToString();
+            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_SaveLookBook", productids, attrIds, MembershipId, viewType, qty, CurrentSeesionId).Rows[0][0]);
         }
         /// <summary>
         /// UpdateUserViewProducts
@@ -173,7 +210,8 @@ namespace DAL
         /// <returns></returns>
         public int UpdateUserViewProducts(BAOUsers objUsers)
         {
-            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_UpdateUserViewProducts", objUsers.Membership_No, BAOUsers.CurrentSeesionId).Rows[0][0]);
+            objUsers.CurrentSeesionId = System.Web.HttpContext.Current.Session["CurrentSessionId"].ToString();
+            return Convert.ToInt32(MsAppDataUtility.ExecuteDataTable("sp_UpdateUserViewProducts", objUsers.Membership_No, objUsers.CurrentSeesionId).Rows[0][0]);
         }
 
         /// <summary>
@@ -184,6 +222,18 @@ namespace DAL
         public int UpdateQntProduct(int viewId,int qty)
         {
             return Convert.ToInt32(MsAppDataUtility.ExecuteNonQuery("sp_UpdateQntProduct", viewId,qty));
-        }   
+        }
+
+        public DataTable GetWhatshot()
+        {
+            return (MsAppDataUtility.ExecuteDataTable("sp_GetWhatshot"));
+        }
+
+        public DataTable GetStoreLocations()
+        {
+            return (MsAppDataUtility.ExecuteDataTable("sp_GetStoreLocations"));
+        }
+
+      
     }
 }

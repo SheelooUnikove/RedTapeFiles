@@ -76,6 +76,15 @@ namespace RedTapeWeb {
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chk_KeepMeSign;
         
         /// <summary>
+        /// lnkguestlogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkguestlogin;
+        
+        /// <summary>
         /// btn_login control.
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace RedTapeWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chk_AgreeTerms;
+        
+        /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
         
         /// <summary>
         /// signInmsg control.

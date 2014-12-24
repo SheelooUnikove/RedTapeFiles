@@ -22,6 +22,15 @@ namespace RedTapeWeb {
         protected global::System.Web.UI.WebControls.Repeater rptrcolors;
         
         /// <summary>
+        /// pnlPairThisUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlPairThisUp;
+        
+        /// <summary>
         /// rptrPairedWith control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,33 @@ namespace RedTapeWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rptrPairedWith;
+        
+        /// <summary>
+        /// pnlYouMayAlsoLike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlYouMayAlsoLike;
+        
+        /// <summary>
+        /// rptrAlsoLike control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptrAlsoLike;
+        
+        /// <summary>
+        /// pnlRecentlyViewed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pnlRecentlyViewed;
         
         /// <summary>
         /// rpt_RecentViewList control.
